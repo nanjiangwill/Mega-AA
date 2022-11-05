@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { ConnectKitButton } from "connectkit";
+// import { ConnectKitButton } from "connectkit";
 import { useNavigate } from "react-router-dom";
 import styles from "./index.module.scss";
 import logo from "./logo.png";
@@ -14,10 +14,10 @@ const Navbar = ({ className, ...props }: NavbarProps) => {
       <img
         src={logo}
         className={styles.logo}
-        alt="Sell Your Soul Wallet"
+        alt="Mega AA Wallet"
         onClick={() => navigate("/")}
       />
-      <ConnectKitButton />
+      {/* <ConnectKitButton /> */}
     </div>
   );
 };
