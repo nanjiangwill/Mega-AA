@@ -1,0 +1,64 @@
+<svg width="1920" height="2253" viewBox="0 0 1920 2253" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_24_15535)">
+<rect width="1094.02" height="1057.4" rx="528.698" transform="matrix(-0.559862 -0.828586 -0.825307 0.564684 1301.18 553.493)" fill="url(#paint0_linear_24_15535)" fill-opacity="0.16"/>
+</g>
+<g filter="url(#filter1_f_24_15535)">
+<rect width="1094.02" height="1057.4" rx="528.698" transform="matrix(-0.559862 -0.828586 -0.825307 0.564684 1397.18 1537.49)" fill="url(#paint1_linear_24_15535)" fill-opacity="0.16"/>
+</g>
+<g filter="url(#filter2_f_24_15535)">
+<rect width="1051.89" height="1016.68" rx="508.338" transform="matrix(-0.559862 -0.828586 -0.825307 0.564684 2318.98 1618.58)" fill="url(#paint2_linear_24_15535)" fill-opacity="0.11"/>
+</g>
+<g filter="url(#filter3_f_24_15535)">
+<rect width="1051.89" height="1016.68" rx="508.338" transform="matrix(-0.559862 -0.828586 -0.825307 0.564684 2318.98 413.583)" fill="url(#paint3_linear_24_15535)" fill-opacity="0.11"/>
+</g>
+<defs>
+<filter id="filter0_f_24_15535" x="-236.979" y="-404.562" width="1591.14" height="1606.71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="129" result="effect1_foregroundBlur_24_15535"/>
+</filter>
+<filter id="filter1_f_24_15535" x="-140.979" y="579.438" width="1591.14" height="1606.71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="129" result="effect1_foregroundBlur_24_15535"/>
+</filter>
+<filter id="filter2_f_24_15535" x="830.125" y="687.488" width="1549.73" height="1564.71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="129" result="effect1_foregroundBlur_24_15535"/>
+</filter>
+<filter id="filter3_f_24_15535" x="830.125" y="-517.512" width="1549.73" height="1564.71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="129" result="effect1_foregroundBlur_24_15535"/>
+</filter>
+<linearGradient id="paint0_linear_24_15535" x1="1.12408e-05" y1="528.698" x2="1749.6" y2="-258.619" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F539F8"/>
+<stop offset="0.270321" stop-color="#5356FB"/>
+<stop offset="0.471527" stop-color="#6753FB"/>
+<stop offset="0.807292" stop-color="#C156C2"/>
+<stop offset="0.9999" stop-color="#374557"/>
+</linearGradient>
+<linearGradient id="paint1_linear_24_15535" x1="1.12408e-05" y1="528.698" x2="1749.6" y2="-258.619" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F539F8"/>
+<stop offset="0.270321" stop-color="#5356FB"/>
+<stop offset="0.471527" stop-color="#6753FB"/>
+<stop offset="0.807292" stop-color="#C156C2"/>
+<stop offset="0.9999" stop-color="#374557"/>
+</linearGradient>
+<linearGradient id="paint2_linear_24_15535" x1="1.08079e-05" y1="508.338" x2="1682.23" y2="-248.659" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F539F8"/>
+<stop offset="0.270321" stop-color="#5356FB"/>
+<stop offset="0.471527" stop-color="#6753FB"/>
+<stop offset="0.807292" stop-color="#C156C2"/>
+<stop offset="0.9999" stop-color="#374557"/>
+</linearGradient>
+<linearGradient id="paint3_linear_24_15535" x1="1.08079e-05" y1="508.338" x2="1682.23" y2="-248.659" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F539F8"/>
+<stop offset="0.270321" stop-color="#5356FB"/>
+<stop offset="0.471527" stop-color="#6753FB"/>
+<stop offset="0.807292" stop-color="#C156C2"/>
+<stop offset="0.9999" stop-color="#374557"/>
+</linearGradient>
+</defs>
+</svg>
