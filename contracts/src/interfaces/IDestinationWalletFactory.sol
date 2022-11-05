@@ -2,5 +2,5 @@
 pragma solidity ^0.8.17;
 
 interface IDestinationWalletFactory {
-    function createWallet(address owner) external;
+    function createWallet() external returns (address);
 }
