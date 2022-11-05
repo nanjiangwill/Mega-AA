@@ -11042,6 +11042,11 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
+sweetalert2@^11.6.5:
+  version "11.6.5"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.6.5.tgz#ce5d0b2501da2fd502955f3168d18fd3bfb982d9"
+  integrity sha512-4/2dD+HoGbMnemYJlY/IXhLUgVFVxLgH3dlEDLY1yufOAW9HLEI8VHmgCo4+pmXbUBlKZU/pDbSgw3wkysi8jQ==
+
 symbol-tree@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
@@ -12098,7 +12103,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zustand@^4.1.1:
+zustand@^4.1.1, zustand@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.1.4.tgz#b0286da4cc9edd35e91c96414fa54bfa4652a54d"
   integrity sha512-k2jVOlWo8p4R83mQ+/uyB8ILPO2PCJOf+QVjcL+1PbMCk1w5OoPYpAIxy9zd93FSfmJqoH6lGdwzzjwqJIRU5A==
