@@ -1,1 +1,3 @@
-@openzeppelin/=lib/openzeppelin-contracts/
+@openzeppelin/=lib/openzeppelin-contracts/contracts/
+@hyperlane/=/lib/hyperlane-monorepo/solidity/
+forge-std/=lib/forge-std/src/
