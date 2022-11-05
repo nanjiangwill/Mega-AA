@@ -2,7 +2,7 @@
 pragma solidity ^0.8.17;
 
 import "./interfaces/UserOperation.sol";
-import "@openzeppelin/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 library SimpleModule {
     using ECDSA for bytes32;

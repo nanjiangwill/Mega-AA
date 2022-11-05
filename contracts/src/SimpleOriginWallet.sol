@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import "./SimpleModule.sol";
 import "./interfaces/IOriginWallet.sol";
-import "@hyperlane/contracts/middleware/InterchainAccountRouter.sol";
+import "hyperlane-monorepo/solidity/contracts/middleware/InterchainAccountRouter.sol";
 
 contract SimpleOriginWallet is IOriginWallet {
 
@@ -23,7 +23,7 @@ contract SimpleOriginWallet is IOriginWallet {
             userOp.calls,
             bytes32(0x00)
             ));
-        SimpleModule.verifySignature(owner, userOpHash, userOp.signature);
+        return(SimpleModule.verifySignature(owner, userOpHash, userOp.signature));
     }
 
     function routeCalls(uint32 destinationDomain, Call[] calldata calls) internal {
