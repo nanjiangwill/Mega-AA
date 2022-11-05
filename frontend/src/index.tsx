@@ -1,15 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createClient, WagmiConfig, chain } from "wagmi";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.scss";
+import reportWebVitals from "./reportWebVitals";
+import LandingPage from "./pages/landing";
+
+const chains = [chain.arbitrumGoerli]; // chain.mainnet, chain.polygon];
+// const client = createClient(
+//   getDefaultClient({ appName: "Mega AA", chains })
+// );
+
+const container = document.getElementById("root")!;
+const root = ReactDOM.createRoot(container);
+
+const router = createBrowserRouter([{ path: "/", element: <LandingPage /> }]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <WagmiConfig client={client}> */}
+      {/* <ConnectKitProvider theme="retro"> */}
+        <ChakraProvider
+          theme={extendTheme({
+            fonts: {
+              heading: `'Ubuntu', sans-serif`,
+              body: `'Ubuntu', sans-serif`,
+            },
+          })}
+        >
+          <RouterProvider router={router} />
+        </ChakraProvider>
+      {/* </ConnectKitProvider> */}
+    {/* </WagmiConfig> */}
   </React.StrictMode>
 );
 
