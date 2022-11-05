@@ -1,0 +1,629 @@
+/* Regular Weight */
+@font-face {
+  font-family: "Product Sans";
+  src: url("./assets/fonts/Product Sans Regular.ttf");
+}
+
+/* Bold Weight */
+@font-face {
+  font-family: "Product Sans";
+  src: url("./assets/fonts/Product Sans Bold.ttf");
+}
+
+/* Bold italic Weight */
+@font-face {
+  font-family: "Product Sans";
+  src: url("./assets/fonts/Product Sans Italic.ttf");
+}
+/* regular Weight */
+@font-face {
+  font-family: "Product Sans";
+  src: url("./assets/fonts/Product Sans Regular.ttf");
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  min-height: 0;
+  min-width: 0;
+}
+:root {
+  --toastify-color-success: #f539f8;
+}
+
+/* TODO: =================================default================================ */
+body {
+  background-image: url("./assets/images/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+html {
+  font-family: "Product Sans";
+}
+.primary-gradient {
+  background: linear-gradient(134.38deg, #f539f8 0%, #c342f9 43.55%, #5356fb 104.51%);
+}
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine:after {
+  content: "";
+  z-index: 1;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  position: absolute;
+  top: -110%;
+  bottom: -50%;
+  width: 1.25em;
+  transform: translate3d(-1000%, 0, 0) rotate(35deg);
+}
+
+.btn-shine:hover::after {
+  transition: transform 0.45s ease-in-out;
+  transform: translate3d(500%, 0, 0) rotate(35deg);
+}
+.secondary-gradient::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(134.38deg, #5356fb 0%, #c342f9 43.55%, #f539f8 104.51%);
+  opacity: 30%;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.default-border-bottom {
+  border-bottom: 1px solid #d3d2fe;
+}
+.overflow-style-none::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.overflow-style-none {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.btn-gradient {
+  background: linear-gradient(134.38deg, #f539f8 0%, #c342f9 43.55%, #5356fb 104.51%);
+}
+.btn-gradient:hover {
+  background: linear-gradient(134.38deg, #5356fb 0%, #c342f9 43.55%, #f539f8 104.51%);
+}
+.text-26 {
+  font-size: 26px;
+  line-height: 31.54px;
+}
+.text-18 {
+  font-size: 18px;
+}
+.section-shadow {
+  box-shadow: 0px 9px 95px 0px #0000000d;
+}
+
+.text-gradient {
+  background: linear-gradient(134.38deg, #f539f8 0%, #c342f9 43.55%, #5356fb 104.51%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(to right, white, white),
+    linear-gradient(134.38deg, #f539f8 0%, #c342f9 43.55%, #5356fb 104.51%);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+.signup.btn-loader {
+  border: 3px solid hsla(180, 4%, 82%, 0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* TODO: =================================default end================================ */
+/* TODO: =================================update password================================ */
+.content-wrapper.thankyou-section {
+  background-image: url("./assets/images/shape/update-pass.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(0);
+  visibility: hidden;
+}
+.content-wrapper.thankyou-section.active {
+  transition: all 0.5s ease-in-out;
+  transform: scale(1);
+  visibility: visible;
+}
+/* #otp {
+  caret-color: transparent;
+}
+.otp-input-com .input-wrapper:focus-within {
+  border: 2px solid #5356fb;
+} */
+
+/* TODO: =================================update password end================================ */
+/* TODO: =================================layout================================ */
+
+.nft-main-wrapper-layout .nft-sidebar,
+.nft-main-wrapper-layout .nft-header-container-wrapper,
+.nft-main-wrapper-layout .largest-sidebar {
+  transition: all 0.1s cubic-bezier(0.52, 0.35, 0.7, 0.37);
+}
+
+.sidebar-logo.enter {
+  transform: scale(1);
+  width: 100%;
+}
+.sidebar-logo {
+  transform: scale(0);
+  width: 0;
+  transition: all 0.5s cubic-bezier(0.48, 0.3, 0.37, 0.79);
+}
+.menu-setting-items .items .item .item-content {
+  transform: scale(0);
+  transition: all 0.5s cubic-bezier(0.48, 0.3, 0.37, 0.79);
+}
+
+.menu-setting-items .items .item .item-content.active {
+  transform: scale(1);
+  transition: all 0.5s cubic-bezier(0.48, 0.3, 0.37, 0.79);
+}
+.menu-setting-items .heading.active {
+  opacity: 100;
+  transform: scale(1);
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.48, 0.3, 0.37, 0.79);
+}
+.menu-setting-items .heading {
+  opacity: 0;
+  transform: scale(0);
+  width: 0;
+  transition: all 0.5s cubic-bezier(0.48, 0.3, 0.37, 0.79);
+}
+.signout-btn .signout-btn-content.active {
+  opacity: 100;
+  transform: scale(1);
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.48, 0.3, 0.37, 0.79);
+}
+.signout-btn .signout-btn-content {
+  opacity: 0;
+  transform: scale(0);
+  width: 0;
+  transition: all 0.5s cubic-bezier(0.48, 0.3, 0.37, 0.79);
+}
+.balance-dropdown::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: 30px solid white;
+  position: absolute;
+  top: -28px;
+  left: 50%;
+}
+.notification-dropdown::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: 30px solid white;
+  position: absolute;
+  top: -28px;
+  left: 74%;
+}
+.profile-dropdown::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: 30px solid white;
+  position: absolute;
+  top: -28px;
+  left: 57%;
+}
+
+.balance-dropdown {
+  top: 16rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s;
+}
+.balance-dropdown.active {
+  top: 6rem;
+  opacity: 100;
+  visibility: visible;
+}
+.notification-dropdown {
+  top: 16rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s;
+}
+.notification-dropdown.active {
+  top: 6rem;
+  opacity: 100;
+  visibility: visible;
+}
+.profile-dropdown {
+  top: 16rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s;
+}
+.profile-dropdown.active {
+  top: 6rem;
+  opacity: 100;
+  visibility: visible;
+}
+.profile-dropdown,
+.notification-dropdown,
+.balance-dropdown {
+  box-shadow: 19px 11px 127px 0px #00000030;
+}
+.miniLineChart canvas {
+  height: 122px;
+}
+.menu-setting-items .nav-item.active span.item-icon {
+  @apply bg-purple text-white;
+}
+.menu-setting-items .nav-item.active span.item-content {
+  @apply text-purple;
+}
+/* TODO: =================================layout end================================ */
+/* TODO: =================================HomePage ================================ */
+.home-page-wrapper .hero-slider .slick-slider .slick-dots li {
+  margin: 0;
+}
+.home-page-wrapper .hero-slider .slick-slider .slick-dots li.slick-active button {
+  background: white;
+}
+.home-page-wrapper .hero-slider .slick-slider .slick-dots li button {
+  background: none;
+  border: 1px solid white;
+  border-radius: 100%;
+  width: 8px;
+  height: 8px;
+}
+.home-page-wrapper .hero-slider .slick-slider .slick-dots li button:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+}
+.trending-slider-left-btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(134.38deg, #5356fb 0%, #c342f9 43.55%, #f539f8 104.51%);
+  z-index: -1;
+  opacity: 30%;
+}
+.card-style-one .content .thumbnail {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-style-one {
+  box-shadow: 0px 9px 95px 0px #0000000d;
+}
+
+.trending-products .slick-slide > div {
+  margin: 0 16px;
+}
+
+/* the parent */
+.trending-products .slick-list {
+  margin: 0 -16px;
+}
+.update-table table tr:last-child {
+  border-bottom: none;
+}
+/* TODO: =================================HomePage end================================ */
+/* TODO: =================================my wallet end================================ */
+.circle-count {
+  display: flex;
+}
+
+.circle-count .percent {
+  position: relative;
+}
+
+.circle-count svg {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  transform: rotate(-90deg);
+}
+
+.circle-count svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #f0f0f0;
+  stroke-width: 5;
+}
+
+.circle-count .number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-count .number :is(h3, span) {
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
+
+.circle-count .title h2 {
+  margin: 25px 0 0;
+}
+
+.circle-count:nth-child(1) svg circle:last-of-type {
+  stroke: rgba(245, 57, 248, 1);
+}
+
+.circle-count:nth-child(2) svg circle:last-of-type {
+  stroke: rgba(242, 153, 74, 1);
+}
+.circle-count:nth-child(3) svg circle:last-of-type {
+  stroke: rgba(235, 87, 87, 1);
+}
+
+.circle-count svg circle:last-of-type {
+  stroke-dasharray: 156px;
+  stroke-dashoffset: calc(156px - (156px * var(--percent)) / 100);
+}
+.recent-transaction-widget .content ul li:last-child {
+  border-bottom: none;
+}
+/* TODO: =================================my wallet end================================ */
+/* TODO: =================================upload product end================================ */
+.drop-product-upload {
+  background-color: #fafafa;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%235356FB29' stroke-width='1' stroke-dasharray='8%2c8' stroke-dashoffset='12' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+.drop-product-upload.highlight {
+  border: 2px dashed #5356fb;
+}
+.field-title {
+  @apply text-xl font-bold tracking-wide text-dark-gray;
+}
+.switch-btn {
+  transition: all 0.5s ease-in-out;
+  background-color: #878f9a;
+}
+.switch-btn.active {
+  background-color: #27ae60;
+}
+.switch-btn .inner-circle {
+  transition: all 0.5s ease-in-out;
+  transform: translate(1.5px, 1.5px);
+}
+.switch-btn.active .inner-circle {
+  transform: translate(24.5px, 1.5px);
+}
+.preview-upload-product {
+  background-image: url("./assets/images/background-2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* TODO: =================================upload product end================================ */
+/* TODO: =================================setting ================================ */
+.notification-page .content-item .notifications {
+  @apply flex space-x-4 items-center;
+}
+.notification-page .content-item .notifications .notification-page .content-item .notifications {
+  @apply mb-0;
+}
+.notification-setting-tab .notification-settings-items li:last-child {
+  border-bottom: none;
+}
+.faq-tab .accordion-items .accordion-item:first-child .accordion-title-bar {
+  padding-top: 0;
+}
+.faq-tab .accordion-items .accordion-item:last-child .accordion-body .accordion-body-content {
+  padding-bottom: 20px;
+}
+.faq-tab .accordion-title-bar {
+  background: #ffffff;
+  position: relative;
+  z-index: 50;
+}
+.faq-tab .accordion-title-bar .accordion-title-icon .vertical {
+  transition: all 0.5s ease-in-out;
+  transform: rotate(0deg);
+  visibility: hidden;
+}
+.faq-tab .accordion-title-bar .accordion-title-icon .vertical.active {
+  transition: all 0.5s ease-in-out;
+  transform: rotate(90deg);
+  visibility: visible;
+}
+.faq-tab .accordion-body {
+  transition: all 0.2s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-220px);
+  overflow: hidden;
+}
+.faq-tab .accordion-body.active {
+  transition: all 0.5s ease-in-out;
+  max-height: 1444px;
+  transform: translateY(0);
+  opacity: 100;
+}
+/* TODO: =================================setting end================================= */
+/* TODO: =================================modal================================= */
+.children-element {
+  left: 50%;
+  top: 175px;
+  transform: translate(-50%, 0px);
+}
+.modal-com {
+  transition: all 0.1s ease-in-out;
+}
+/* TODO: =================================modal end================================= */
+/* TODO: =================================login ================================= */
+.btn-login {
+  width: 100%;
+  height: 58px;
+  @apply bg-purple;
+}
+.btn-login.active {
+  transition: all 0.5s ease-in-out;
+  width: 58px;
+  height: 58px;
+  @apply bg-pink;
+}
+
+/* TODO: =================================login end================================= */
+/* TODO: ================================= profile================================= */
+.nft-authprofile-wrapper .content-wrapper-profile-only .auth,
+.nft-userprofile-wrapper .content-wrapper-profile-only .auth {
+  margin-top: -120px;
+}
+
+/* TODO: =================================profile end================================= */
+/* TODO: ================================= settings================================= */
+
+/* TODO: =================================settings end================================= */
+/*
+TODO: components ===========================
+*/
+
+.drop-down-com .drop-down-content {
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  top: 150px;
+}
+.drop-down-com .drop-down-content.active {
+  opacity: 100;
+  visibility: visible;
+  top: 100%;
+}
+.product-options .drop-down-content {
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  top: 150px;
+  right: 40px;
+}
+.product-options .drop-down-content.active {
+  opacity: 100;
+  visibility: visible;
+  top: 0;
+}
+.product-two-options .drop-down-content {
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  top: 150px;
+  right: 0;
+}
+.product-two-options .drop-down-content.active {
+  opacity: 100;
+  visibility: visible;
+  top: calc(100% + 10px);
+}
+.rate-statics-dropdown {
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  top: 150px;
+  left: 0;
+}
+.rate-statics-dropdown.active {
+  opacity: 100;
+  visibility: visible;
+  top: calc(100% + 10px);
+}
+.Update-table-dropdown :is(.text-sm) {
+  @apply text-base;
+}
+/*
+TODO: Responsive ===========================
+*/
+
+@media (max-width: 1536px) {
+  .trending-products .slick-slide > div {
+    margin: 0 10px;
+  }
+}
+@media (max-width: 1280px) {
+}
+@media (max-width: 1024px) {
+  .content-wrapper.thankyou-section {
+    background-image: none;
+  }
+  .children-element {
+    left: 50%;
+    top: 65px;
+    transform: translate(-50%, 0px);
+  }
+}
+@media (max-width: 768px) {
+  .profile-dropdown::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-right: 25px solid transparent;
+    border-left: 25px solid transparent;
+    border-bottom: 30px solid white;
+    position: absolute;
+    top: -28px;
+    left: 78%;
+  }
+  .children-element {
+    left: 0;
+    top: 0;
+    webkit-transform: none;
+    transform: none;
+  }
+}
+@media (max-width: 640px) {
+}
+@media (max-width: 426px) {
+  .nft-authprofile-wrapper .content-wrapper-profile-only .auth,
+  .nft-userprofile-wrapper .content-wrapper-profile-only .auth {
+    margin-top: -70px;
+  }
+}
+@media (max-width: 376px) {
+  .notification-page .content-item .notifications {
+    @apply block space-x-0;
+  }
+  .notification-page .content-item .notifications .icon {
+    @apply mb-2;
+  }
+}
