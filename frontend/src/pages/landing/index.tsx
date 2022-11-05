@@ -7,31 +7,20 @@ import { Contract } from "@ethersproject/contracts";
 import Button from "components/button";
 
 const LandingPage = () => {
-
-  const provider = useProvider();
-  const toast = useToast();
-  const { data: signer } = useSigner();
-  const { address } = useAccount();
-
   return (
     <CommonLayout className={styles.page}>
       <div className={styles.firstView}>
         <div className={styles.heading}>Mega AA Wallet</div>
         <div className={styles.description}>...</div>
         <div className={styles.cards}>
-          <Button variant="primary" size="large" className={styles.card}>
-            Create new Mega AA
-          </Button>
-          <Button variant="primary" size="large" className={styles.card}>
-            Add Security Module
-          </Button>
-          <Button variant="primary" size="large" className={styles.card}>
-            Delete
-          </Button>
-          <Button variant="primary" size="large" className={styles.card}>
+          <Button variant="special" className={styles.card}>Create new Mega AA</Button>
+          <Button variant="special" className={styles.card}>
             Interact
           </Button>
-          ....
+          <Button variant="secondary"  className={styles.card}>Add Security Module</Button>
+          <Button variant="secondary" className={styles.card}>
+            Delete Security Module
+          </Button>
         </div>
       </div>
     </CommonLayout>

@@ -22,16 +22,16 @@ root.render(
   <React.StrictMode>
     {/* <WagmiConfig client={client}> */}
       {/* <ConnectKitProvider theme="retro"> */}
-        <ChakraProvider
+        {/* <ChakraProvider
           theme={extendTheme({
             fonts: {
               heading: `'Ubuntu', sans-serif`,
               body: `'Ubuntu', sans-serif`,
             },
           })}
-        >
+        > */}
           <RouterProvider router={router} />
-        </ChakraProvider>
+        {/* </ChakraProvider> */}
       {/* </ConnectKitProvider> */}
     {/* </WagmiConfig> */}
   </React.StrictMode>
