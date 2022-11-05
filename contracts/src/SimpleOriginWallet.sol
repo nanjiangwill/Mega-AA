@@ -7,8 +7,13 @@ import "hyperlane-monorepo/solidity/contracts/middleware/InterchainAccountRouter
 
 contract SimpleOriginWallet is IOriginWallet {
 
-    address public owner;
-    address public interchainAccountRouter;
+    address public immutable owner;
+    address public immutable interchainAccountRouter;
+
+    constructor(address _owner, address _interchainAccountRouter) {
+        owner = _owner;
+        interchainAccountRouter = _interchainAccountRouter;
+    }
 
     function handleUserOp(UserOperation calldata userOp) external {
         require(validateUserOp(userOp));
