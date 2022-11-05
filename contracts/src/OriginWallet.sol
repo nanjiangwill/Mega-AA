@@ -13,6 +13,6 @@ contract OriginWallet is IOriginWallet {
 
     // this function can be deleted and the code can be moved to handleUserOp
     function _postVerificationExec(UserOperation calldata userOp) private returns (bool success) {
-        InterchainAccountRouterContract.call(abi.encode("dispatch(uint256, Call[])", userOp.destinationDomain, userOp.calls));
+        (bool success, bytes memory data) = InterchainAccountRouterContract.call(abi.encodeWithSignature("dispatch(uint256, Call[])", userOp.destinationDomain, userOp.calls));
     }
 }   
