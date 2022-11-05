@@ -1,10 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
-struct Call {
-    address to;
-    bytes callData;
-}
+import "hyperlane-monorepo/solidity/contracts/OwnableMulticall.sol";
 
 struct UserOperation {
     address sender;
