@@ -227,6 +227,12 @@ export default function ChangePasswordTab() {
                     </p>
                   </div>
                 </div>
+                <form>
+                      <label>
+                        2FA Address:
+                        <input type="text" name="name" />
+                      </label>
+                    </form>
                 <div className="mt-5 sm:mt-0">
                   <SwitchCom
                     value={getProduct}
