@@ -9,9 +9,11 @@ export default function InputCom({
   iconName,
   inputHandler,
   value,
+  classes,
+  disabled,
 }) {
   return (
-    <div className="input-com">
+    <div className={`input-com ${classes.join(" ")}`}>
       {label && (
         <label
           className="input-label text-dark-gray text-xl font-bold block mb-2.5"
@@ -22,6 +24,7 @@ export default function InputCom({
       )}
       <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] overflow-hidden relative ">
         <input
+          disabled={disabled}
           placeholder={placeholder}
           value={value}
           onChange={inputHandler}
