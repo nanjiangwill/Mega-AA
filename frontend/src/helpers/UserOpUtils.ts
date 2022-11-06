@@ -50,6 +50,7 @@ export function packUserOp (op: UserOperationStruct): string {
         ...op,
         signature: '0x'
     }]);
+    // this omits the first 32 bytes (length) and the last 32 bytes (blank signature)
     encoded = '0x' + encoded.slice(66, encoded.length - 64);
     return encoded;
 }
