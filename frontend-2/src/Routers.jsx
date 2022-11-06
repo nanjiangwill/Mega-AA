@@ -22,6 +22,7 @@ import UpdatePasswordPages from "./views/UpdatePasswordPages";
 import UploadProductPage from "./views/UploadProductPage";
 import UserProfilePage from "./views/UserProfilePage";
 import VerifyYouPages from "./views/VerifyYouPages";
+import PasswordWalletPage from "./views/PasswordWalletPage";
 
 export default function Routers() {
   return (
@@ -41,6 +42,7 @@ export default function Routers() {
           element={<UpdatePasswordPages />}
         />
         <Route exact path="/verify-you" element={<VerifyYouPages />} />
+        <Route exact path="/password-wallet" element={<PasswordWalletPage />} />
 
         {/* private route */}
         <Route element={<AuthRoute />}>
