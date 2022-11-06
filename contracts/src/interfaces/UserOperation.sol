@@ -6,7 +6,7 @@ import "hyperlane-monorepo/solidity/contracts/OwnableMulticall.sol";
 struct UserOperation {
     address sender;
     uint256 nonce;
-    uint32 destinationDomain;
+    uint256 destinationDomain;
     Call[] calls;
     bytes signature;
 }
