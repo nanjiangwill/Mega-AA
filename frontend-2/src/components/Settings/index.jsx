@@ -78,6 +78,7 @@ export default function Settings() {
       imgReader.readAsDataURL(e.target.files[0]);
     }
   };
+  
 
   // fab tab
   const faqData = faq.datas;
@@ -92,10 +93,10 @@ export default function Settings() {
                 Settings
               </h1>
             </div>
-            <div className="content-container w-full pt-10 rounded-2xl bg-white">
+            <div className="content-container w-full pt-10 rounded-2xl bg-white border 2xl:border-none ">
               <div className="content-heading w-full mb-8 lg:px-10 px-4">
                 <h1 className="text-xl font-bold text-dark-gray antialiased">
-                  Parsonal Informaiton
+                  Personal Informaiton
                 </h1>
               </div>
               <div className="content-body w-full lg:flex lg:px-10 px-4">
@@ -113,54 +114,7 @@ export default function Settings() {
                         <Icons name="people-hover" />
                       </div>
                       <div>
-                        <p className="text-18 tracking-wide">Parsonal Info</p>
-                      </div>
-                    </li>
-                    <li
-                      onClick={() => tabHandler("payment")}
-                      className={`flex lg:space-x-4 space-x-2 hover:text-purple transition-all duration-300 ease-in-out items-center cursor-pointer lg:mb-11 mb-2 mr-6 lg:mr-0 float-left lg:float-none overflow-hidden ${
-                        tab === "payment"
-                          ? "text-purple"
-                          : " text-thin-light-gray"
-                      }`}
-                    >
-                      <div>
-                        <Icons name="bank-card" />
-                      </div>
-                      <div>
-                        <p className="text-18 tracking-wide">Payment Method</p>
-                      </div>
-                    </li>
-                    <li
-                      onClick={() => tabHandler("notification")}
-                      className={`flex lg:space-x-4 space-x-2 hover:text-purple transition-all duration-300 ease-in-out items-center cursor-pointer lg:mb-11 mb-2 mr-6 lg:mr-0 float-left lg:float-none overflow-hidden ${
-                        tab === "notification"
-                          ? "text-purple"
-                          : " text-thin-light-gray"
-                      }`}
-                    >
-                      <div>
-                        <Icons name="notification-setting" />
-                      </div>
-                      <div>
-                        <p className="text-18 tracking-wide">
-                          Notifiction Setting
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      onClick={() => tabHandler("login_activity")}
-                      className={`flex lg:space-x-4 space-x-2 hover:text-purple transition-all duration-300 ease-in-out items-center cursor-pointer lg:mb-11 mb-2 mr-6 lg:mr-0 float-left lg:float-none overflow-hidden ${
-                        tab === "login_activity"
-                          ? "text-purple"
-                          : " text-thin-light-gray"
-                      }`}
-                    >
-                      <div>
-                        <Icons name="login-activity" />
-                      </div>
-                      <div>
-                        <p className="text-18 tracking-wide">Login Activity</p>
+                        <p className="text-18 tracking-wide">Personal Info</p>
                       </div>
                     </li>
                     <li
@@ -176,36 +130,6 @@ export default function Settings() {
                       </div>
                       <div>
                         <p className="text-18 tracking-wide">Change Password</p>
-                      </div>
-                    </li>
-                    <li
-                      onClick={() => tabHandler("faq")}
-                      className={`flex lg:space-x-4 space-x-2 hover:text-purple transition-all duration-300 ease-in-out items-center cursor-pointer lg:mb-11 mb-2 mr-6 lg:mr-0 float-left lg:float-none overflow-hidden ${
-                        tab === "faq" ? "text-purple" : " text-thin-light-gray"
-                      }`}
-                    >
-                      <div>
-                        <Icons name="block-question" />
-                      </div>
-                      <div>
-                        <p className="text-18 tracking-wide">FAQ</p>
-                      </div>
-                    </li>
-                    <li
-                      onClick={() => tabHandler("terms")}
-                      className={`flex lg:space-x-4 space-x-2 hover:text-purple transition-all duration-300 ease-in-out items-center cursor-pointer lg:mb-11 mb-2 mr-6 lg:mr-0 float-left lg:float-none overflow-hidden ${
-                        tab === "terms"
-                          ? "text-purple"
-                          : " text-thin-light-gray"
-                      }`}
-                    >
-                      <div>
-                        <Icons name="page-right" />
-                      </div>
-                      <div>
-                        <p className="text-18 tracking-wide">
-                          Terms and Conditions
-                        </p>
                       </div>
                     </li>
                   </ul>

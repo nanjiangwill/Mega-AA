@@ -81,38 +81,6 @@ export default function MobileSidebar({ sidebar, action, logoutModalHandler }) {
               </li>
               <li className="item group">
                 <NavLink
-                  to="/active-bids"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="active-bids" />
-                  </span>
-                  <span className="item-content relative group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray font-medium active flex-1">
-                    Active Bids
-                    <span className="absolute left-24 -top-1 text-sm flex justify-center items-center w-5 h-5 primary-gradient rounded-full text-white">
-                      19
-                    </span>
-                  </span>
-                </NavLink>
-              </li>
-              <li className="item group">
-                <NavLink
-                  to="/market-place"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="market" />
-                  </span>
-                  <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    Marketplace
-                    <span className="absolute left-28 -top-1 text-sm flex justify-center items-center w-5 h-5 bg-purple rounded-full text-white">
-                      09
-                    </span>
-                  </span>
-                </NavLink>
-              </li>
-              <li className="item group">
-                <NavLink
                   to="/my-wallet"
                   className="nav-item flex items-center justify-start space-x-3.5"
                 >
@@ -120,81 +88,7 @@ export default function MobileSidebar({ sidebar, action, logoutModalHandler }) {
                     <Icons name="wallet-two" />
                   </span>
                   <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    My Wallet
-                  </span>
-                </NavLink>
-              </li>
-              <li className="item group">
-                <NavLink
-                  to="/my-collection"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="star" />
-                  </span>
-                  <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    My collections
-                  </span>
-                </NavLink>
-              </li>
-              <li className="item group">
-                <NavLink
-                  to="/sell"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="shop-card" />
-                  </span>
-                  <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    Sell
-                    <span className="absolute left-10 -top-1 text-sm flex justify-center items-center w-5 h-5 bg-green-700 rounded-full text-white">
-                      4k
-                    </span>
-                  </span>
-                </NavLink>
-              </li>
-              <li className="item group">
-                <NavLink
-                  to="/saved"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="heart" />
-                  </span>
-                  <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    Saved
-                    <span className="absolute left-14 -top-1 text-sm flex justify-center items-center w-5 h-5 bg-red-500 rounded-full text-white">
-                      32
-                    </span>
-                  </span>
-                </NavLink>
-              </li>
-              <li className="item group">
-                <NavLink
-                  to="/message"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="message-two" />
-                  </span>
-                  <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    Message
-                    <span className="absolute left-20 -top-1 text-sm flex justify-center items-center w-5 h-5 bg-pink rounded-full text-white">
-                      19
-                    </span>
-                  </span>
-                </NavLink>
-              </li>
-              <li className="item group">
-                <NavLink
-                  to="/history"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="history" />
-                  </span>
-                  <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    History
+                    Transaction
                   </span>
                 </NavLink>
               </li>

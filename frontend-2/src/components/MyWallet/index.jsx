@@ -272,6 +272,8 @@ export default function MyWallet() {
               </div>
             </div>
             <CurrencyStaticsSection />
+            <RecentTransactionWidget />
+            <br></br>
             {/* flex space-x-11 */}
             <div className="recent-and-investment grid lg:grid-cols-2 grid-cols-1 2xl:gap-[40px] xl:gap-7 gap-4 lg:h-[416px] w-full  justify-between">
               <div className=" h-full">

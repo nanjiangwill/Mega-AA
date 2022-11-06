@@ -10,7 +10,7 @@ import Icons from "../Helpers/Icons";
 import ModalCom from "../Helpers/ModalCom";
 import SearchCom from "../Helpers/SearchCom";
 
-export default function Header({ logoutModalHandler, sidebarHandler }) {
+export default function Header({ logoutModalHandler, sidebarHandler, createModelHandler }) {
   const [balanceDropdown, setbalanceValue] = useToggle(false);
   const [notificationDropdown, setNotificationValue] = useToggle(false);
   const [userProfileDropdown, setProfileDropdown] = useToggle(false);
@@ -119,7 +119,7 @@ export default function Header({ logoutModalHandler, sidebarHandler }) {
             {/* balance */}
             <div className="lg:flex hidden user-balance cursor-pointer lg:w-[252px] w-[150px] h-[48px]  items-center rounded-full relative  bg-purple pr-1.5 pl-4">
               <div
-                onClick={() => handlerBalance()}
+                onClick={() => createModelHandler()}
                 className="flex items-center lg:justify-between justify-center w-full h-full"
               >
                 <span className="lg:block hidden">
@@ -301,7 +301,7 @@ export default function Header({ logoutModalHandler, sidebarHandler }) {
                             </span>
                           </p>
                           <p className="text-sm text-thin-light-gray font-medium">
-                            23 house ago
+                            2 minutes ago
                           </p>
                         </div>
                       </div>
@@ -333,13 +333,13 @@ export default function Header({ logoutModalHandler, sidebarHandler }) {
                         </div>
                         <div className="name">
                           <p className="text-base text-dark-gray font-medium mb-2">
-                            You upload your frast product
+                            You created your first transaction
                             <span className="ml-1 font-bold">
                               successfully done
                             </span>
                           </p>
                           <p className="text-sm text-thin-light-gray font-medium">
-                            23 house ago
+                            1 minute ago
                           </p>
                         </div>
                       </div>

@@ -4,5 +4,5 @@ pragma solidity ^0.8.17;
 import "./UserOperation.sol";
 
 interface IOriginWallet {
-    function handleUserOp(UserOperation calldata userOp) external;
+    function handleUserOp(UserOperation calldata userOp, bytes32 userOpHash) external;
 }
