@@ -11,7 +11,9 @@ import RightSideBar from "./RightSideBar";
 import Sidebar from "./Sidebar";
 import SelectBox from "../Helpers/SelectBox";
 import InputCom from "../Helpers/Inputs/InputCom";
-import { ethers } from 'ethers';
+import { ethers } from "ethers";
+import { Contract } from "@ethersproject/contracts";
+import WalletContract from "../../contracts/wallet.json";
 
 export default function Layout({ children }) {
   const { drawer } = useSelector((state) => state.drawer);
@@ -21,16 +23,18 @@ export default function Layout({ children }) {
   const [createModal, setCreateModal] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const [chain, setChain] = useState("Polygon");
-  const [address, setAddress] = useState("0x2B09B574F3c90F7372C6819d1c9a9Ea044B78310");
-  const [userOperation, setUserOperation] = useState("Transfer Asset")
-  const [nonce, setNonce] = useState(0)
+  const [address, setAddress] = useState(
+    "0x2B09B574F3c90F7372C6819d1c9a9Ea044B78310"
+  );
+  const [userOperation, setUserOperation] = useState("Transfer Asset");
+  const [nonce, setNonce] = useState(0);
   const [securityT1, setSecurityT1] = useState(0)
   const [pop, setPop] = useState(0)
-  const datas = {}
+  const datas = {};
 
   const handleNonce = () => {
-    setNonce(nonce + 1)
-  }
+    setNonce(nonce + 1);
+  };
 
   const logoutModalHandler = () => {
     setLogoutModal(!logoutModal);
@@ -51,114 +55,77 @@ export default function Layout({ children }) {
     navigate("/login", { replace: true });
   };
 
-  const owner = "0x001"
-  const optimismHyperlaneID = 420
-  // const byteOperation = 
+  const owner = "0x5c9CB0115DdE2CCD8819E0AC9a01CAFE30Be8Ba8";
+  const optimismHyperlaneID = 420;
+  // const byteOperation =
 
   const submitTransaction = async (quantity, chain, address, operation) => {
-        
-    if(quantity > 1000 && securityT1 == 0){
-      console.log("warning")
-      securityT1 = 1;
-    }
-
-    /*
-    let ABI = ['transfer(address,uint256)'];
+    let ABI = ["function transfer(address, uint256)"];
     let iface = new ethers.utils.Interface(ABI);
-    //  change quantity to using parse unit
-    quantity = ethers.utils.parseUnits(quantity, 18)
-    iface.encodeFunctionData("transfer", [address,  quantity]);
-    
+    // //  change quantity to using parse unit
+    // quantity = ethers.utils.parseUnits(quantity, 18);
+    let data = iface.encodeFunctionData("transfer", ["0x5c9CB0115DdE2CCD8819E0AC9a01CAFE30Be8Ba8", 2]);
+
     // userOp and userOpHash => userOpHash Byte 32, userOp => struct below
-
+    console.log('arrive')
     const transferCall = {
-      to: address,
-      data: operation
-    }
-    const calls = [transferCall]
+      to: "0x63437Bc5DB0c5dcAc9ab8061c0fD32fb624E2ACB",
+      data: data,
+    };
+    // const transferCall = ["0xBC3cFeca7Df5A45d61BC60E7898E63670e1654aE", "0xf07c1f4700000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000001648656c6c6f576f726c642066726f6d20616e2049434100000000000000000000"]
+    const calls = [transferCall];
 
-    // return 
-    const signature = "place holder"
+    // return
+    const signature = "0x6162636400000000000000000000000000000000000000000000000000000000";
 
+    
+    quantity = 100
+    console.log(quantity)
     if (quantity < 1000) {
+      console.log(calls)
+
       const userOperation = {
-        sender: owner, 
+        sender: owner,
         nonce: nonce,
-        destinationDomain: optimismHyperlaneID,
+        destinationDomain: "80001",
         calls: calls,
-        signature: signature
-      }
+        signature: signature,
+      };
 
-      const provider = new ethers.providers.JsonRpcProvider();
- 
-      const signer = provider.getSigner()
+      const provider = new ethers.providers.JsonRpcProvider(
+        "https://opt-goerli.g.alchemy.com/v2/kaPIGxWPm7lk-yq745SRFjob-6gB6ohh"
+      );
 
-      await provider.call({
-        // ENS public resolver address
-        to: "0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41",
-      
-        // `function addr(namehash("ricmoo.eth")) view returns (address)`
-        data: iface
-      }); 
+      let privateKey =
+        "86a7c560ebc7320724ad9beded8b8bf00ade4d8c4d1770b2d4ed0a696db452f2";
+      let wallet = new ethers.Wallet(privateKey);
+      let signer = wallet.connect(provider);
 
-    } 
-    */
+      // const signer = provider.getSigner()
+      const WalletContractT = new Contract(
+        WalletContract.contract,
+        WalletContract.abi,
+        signer
+      );
+      console.log(userOperation)
 
+      const result = await WalletContractT.handleUserOp(
+        userOperation,
+        "0x6162636400000000000000000000000000000000000000000000000000000000",
+      )
+      console.log(result.hash)
+      const output = await result.wait()
+      console.log(output)
+    }
 
     // await for success
     handleNonce();
 
-    if(securityT1 == 0){
-      toast.success("Transaction Complete", {
-        icon: `🙂`,
-      });
-      navigate("/", { replace: true });
-      setSecurityT1(1);
-    }
-
-    if(securityT1 == 3){
     toast.success("Transaction Complete", {
       icon: `🙂`,
     });
     navigate("/", { replace: true });
-    setSecurityT1(4);
-  }
-
-  if(securityT1 == 2){
-    toast.success("Almost... Setting Up One Time Passcode Module", {
-      icon: `⌛️`,
-    });
-    navigate("/", { replace: true });
-    setSecurityT1(3);
-    setPop(1)
-  }
-
-    if(securityT1 == 1){
-      console.log(securityT1)
-      toast.success("Large Tx Warning! Better set One Time Passcode in Settings", {
-        icon: `😫`,
-      });
-      navigate("/", { replace: true });
-      setSecurityT1(2);
-      console.log(securityT1)
-    }
-
-    if(securityT1 == 4){
-      toast.success("Mega Tx Warning!!! Better set 2FA in Settings", {
-        icon: `🙏`,
-      });
-      navigate("/", { replace: true });
-      setSecurityT1(5);
-    }
-
-    if(securityT1 == 5){
-      toast.success("Transaction Complete", {
-        icon: `🙂`,
-      });
-      navigate("/", { replace: true });
-    }
-
-  }
+  };
 
   return (
     <>
@@ -214,9 +181,7 @@ export default function Layout({ children }) {
               <div className="nft-main-container flex-1">
                 {children && children}
               </div>
-              <div className="nft-right-side-content 2xl:w-[270px] w-full h-full 2xl:flex justify-center relative">
-            
-              </div>
+              <div className="nft-right-side-content 2xl:w-[270px] w-full h-full 2xl:flex justify-center relative"></div>
             </div>
           </div>
         </div>
@@ -294,195 +259,166 @@ export default function Layout({ children }) {
           </div>
         </ModalCom>
       )}
-       {createModal && (
+      {createModal && (
         <ModalCom action={createModelHandler} situation={logoutModal}>
           <div className="logout-modal-wrapper lg:w-[460px] h-full lg:h-auto bg-white lg:rounded-2xl">
             <div className="logout-modal-header w-full flex items-center justify-between lg:px-10 lg:py-8 px-[30px] py-[23px] border-b border-light-purple">
               <h1 className="text-26 font-bold text-dark-gray tracking-wide">
                 Create Transaction
               </h1>
-            <button type="button" className="" onClick={createModelHandler}>
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M36 16.16C36 17.4399 36 18.7199 36 20.0001C35.7911 20.0709 35.8636 20.2554 35.8385 20.4001C34.5321 27.9453 30.246 32.9248 22.9603 35.2822C21.9006 35.6251 20.7753 35.7657 19.6802 35.9997C18.4003 35.9997 17.1204 35.9997 15.8401 35.9997C15.5896 35.7086 15.2189 35.7732 14.9034 35.7093C7.77231 34.2621 3.08728 30.0725 0.769671 23.187C0.435002 22.1926 0.445997 21.1199 0 20.1599C0 18.7198 0 17.2798 0 15.8398C0.291376 15.6195 0.214408 15.2656 0.270759 14.9808C1.71321 7.69774 6.02611 2.99691 13.0428 0.700951C14.0118 0.383805 15.0509 0.386897 15.9999 0C17.2265 0 18.4532 0 19.6799 0C19.7156 0.124041 19.8125 0.136067 19.9225 0.146719C27.3 0.868973 33.5322 6.21922 35.3801 13.427C35.6121 14.3313 35.7945 15.2484 36 16.16ZM33.011 18.0787C33.0433 9.77105 26.3423 3.00309 18.077 2.9945C9.78479 2.98626 3.00344 9.658 2.98523 17.8426C2.96667 26.1633 9.58859 32.9601 17.7602 33.0079C26.197 33.0577 32.9787 26.4186 33.011 18.0787Z"
-                  fill="#374557"
-                  fillOpacity="0.6"
-                />
-                <path
-                  d="M15.9309 18.023C13.9329 16.037 12.007 14.1207 10.0787 12.2072C9.60071 11.733 9.26398 11.2162 9.51996 10.506C9.945 9.32677 11.1954 9.0811 12.1437 10.0174C13.9067 11.7585 15.6766 13.494 17.385 15.2879C17.9108 15.8401 18.1633 15.7487 18.6375 15.258C20.3586 13.4761 22.1199 11.7327 23.8822 9.99096C24.8175 9.06632 26.1095 9.33639 26.4967 10.517C26.7286 11.2241 26.3919 11.7413 25.9133 12.2178C24.1757 13.9472 22.4477 15.6855 20.7104 17.4148C20.5228 17.6018 20.2964 17.7495 20.0466 17.9485C22.0831 19.974 24.0372 21.8992 25.9689 23.8468C26.9262 24.8119 26.6489 26.1101 25.4336 26.4987C24.712 26.7292 24.2131 26.3441 23.7455 25.8757C21.9945 24.1227 20.2232 22.3892 18.5045 20.6049C18.0698 20.1534 17.8716 20.2269 17.4802 20.6282C15.732 22.4215 13.9493 24.1807 12.1777 25.951C11.7022 26.4262 11.193 26.7471 10.4738 26.4537C9.31345 25.9798 9.06881 24.8398 9.98589 23.8952C11.285 22.5576 12.6138 21.2484 13.9387 19.9355C14.5792 19.3005 15.2399 18.6852 15.9309 18.023Z"
-                  fill="#374557"
-                  fillOpacity="0.6"
-                />
-              </svg>
-            </button>
-          </div>
-          <div className="field w-full mb-6 px-[30px] py-[23px]">
-          {/* <SelectBox datas={["Optimism", "Polygon", "Ethereum"]} action={setChain} />
+              <button type="button" className="" onClick={createModelHandler}>
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M36 16.16C36 17.4399 36 18.7199 36 20.0001C35.7911 20.0709 35.8636 20.2554 35.8385 20.4001C34.5321 27.9453 30.246 32.9248 22.9603 35.2822C21.9006 35.6251 20.7753 35.7657 19.6802 35.9997C18.4003 35.9997 17.1204 35.9997 15.8401 35.9997C15.5896 35.7086 15.2189 35.7732 14.9034 35.7093C7.77231 34.2621 3.08728 30.0725 0.769671 23.187C0.435002 22.1926 0.445997 21.1199 0 20.1599C0 18.7198 0 17.2798 0 15.8398C0.291376 15.6195 0.214408 15.2656 0.270759 14.9808C1.71321 7.69774 6.02611 2.99691 13.0428 0.700951C14.0118 0.383805 15.0509 0.386897 15.9999 0C17.2265 0 18.4532 0 19.6799 0C19.7156 0.124041 19.8125 0.136067 19.9225 0.146719C27.3 0.868973 33.5322 6.21922 35.3801 13.427C35.6121 14.3313 35.7945 15.2484 36 16.16ZM33.011 18.0787C33.0433 9.77105 26.3423 3.00309 18.077 2.9945C9.78479 2.98626 3.00344 9.658 2.98523 17.8426C2.96667 26.1633 9.58859 32.9601 17.7602 33.0079C26.197 33.0577 32.9787 26.4186 33.011 18.0787Z"
+                    fill="#374557"
+                    fillOpacity="0.6"
+                  />
+                  <path
+                    d="M15.9309 18.023C13.9329 16.037 12.007 14.1207 10.0787 12.2072C9.60071 11.733 9.26398 11.2162 9.51996 10.506C9.945 9.32677 11.1954 9.0811 12.1437 10.0174C13.9067 11.7585 15.6766 13.494 17.385 15.2879C17.9108 15.8401 18.1633 15.7487 18.6375 15.258C20.3586 13.4761 22.1199 11.7327 23.8822 9.99096C24.8175 9.06632 26.1095 9.33639 26.4967 10.517C26.7286 11.2241 26.3919 11.7413 25.9133 12.2178C24.1757 13.9472 22.4477 15.6855 20.7104 17.4148C20.5228 17.6018 20.2964 17.7495 20.0466 17.9485C22.0831 19.974 24.0372 21.8992 25.9689 23.8468C26.9262 24.8119 26.6489 26.1101 25.4336 26.4987C24.712 26.7292 24.2131 26.3441 23.7455 25.8757C21.9945 24.1227 20.2232 22.3892 18.5045 20.6049C18.0698 20.1534 17.8716 20.2269 17.4802 20.6282C15.732 22.4215 13.9493 24.1807 12.1777 25.951C11.7022 26.4262 11.193 26.7471 10.4738 26.4537C9.31345 25.9798 9.06881 24.8398 9.98589 23.8952C11.285 22.5576 12.6138 21.2484 13.9387 19.9355C14.5792 19.3005 15.2399 18.6852 15.9309 18.023Z"
+                    fill="#374557"
+                    fillOpacity="0.6"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="field w-full mb-6 px-[30px] py-[23px]">
+              {/* <SelectBox datas={["Optimism", "Polygon", "Ethereum"]} action={setChain} />
           <SelectBox datas={["Transfer ERC-20 Token", "Transfer ERC-721 NFT"]} action={setUserOperation} /> */}
-          <h1 className="field-title">Asset Quantity</h1>
-          <div className="input-field my-2">
-            <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
-              <input
-                // value={quantity}
-                onSubmit={(e) => setQuantity(e)}
-                placeholder="enter the quantity of asset to transfer"
-                className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
-                type="number"
-              />
-              <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
-                <div className="flex space-x-1 items-center">
-                  <span className="text-dark-gray text-base">DAI</span>
-                  <span>
-                    <svg
-                      width="13"
-                      height="6"
-                      viewBox="0 0 13 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        opacity="0.7"
-                        d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
-                        fill="#374557"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <br/>
-            <h1 className="field-title">Destination Chain</h1>
-            <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
-              <input
-                value={chain}
-                onSubmit={(e) => setChain(e)}
-                placeholder="enter the quantity of asset to transfer"
-                className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
-                type="text"
-              />
-              <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
-                <div className="flex space-x-1 items-center">
-                  <span>
-                    <svg
-                      width="13"
-                      height="6"
-                      viewBox="0 0 13 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        opacity="0.7"
-                        d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
-                        fill="#374557"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <br/>
-            <h1 className="field-title">Destination Address</h1>
-            <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
-              <input
-                value={address}
-                onSubmit={(e) => setChain(e)}
-                placeholder="enter the quantity of asset to transfer"
-                className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
-                type="text"
-              />
-              <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
-                <div className="flex space-x-1 items-center">
-                  <span>
-                    <svg
-                      width="13"
-                      height="6"
-                      viewBox="0 0 13 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        opacity="0.7"
-                        d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
-                        fill="#374557"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <br/>
-            <h1 className="field-title">Operation</h1>
-            <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
-              <input
-                value={userOperation}
-                onSubmit={(e) => setUserOperation(e)}
-                placeholder="enter the quantity of asset to transfer"
-                className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
-                type="text"
-              />
-              <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
-                <div className="flex space-x-1 items-center">
-                  <span>
-                    <svg
-                      width="13"
-                      height="6"
-                      viewBox="0 0 13 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        opacity="0.7"
-                        d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
-                        fill="#374557"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <br></br>
-            {pop == 1 &&
-              <><h1 className="field-title">One Time Verification Code</h1><div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
-                    <form>
-                      <label>
-                        One Time Verification Code:
-                        <input type="text" name="name" />
-                      </label>
-                    </form>
-                    <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
-                      <div className="flex space-x-1 items-center">
-                        <span>
-                          <svg
-                            width="13"
-                            height="6"
-                            viewBox="0 0 13 6"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              opacity="0.7"
-                              d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
-                              fill="#374557" />
-                          </svg>
-                        </span>
-                      </div>
+              <h1 className="field-title">Asset Quantity</h1>
+              <div className="input-field my-2">
+                <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
+                  <input
+                    // value={quantity}
+                    onSubmit={(e) => setQuantity(e)}
+                    placeholder="enter the quantity of asset to transfer"
+                    className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
+                    type="number"
+                  />
+                  <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
+                    <div className="flex space-x-1 items-center">
+                      <span className="text-dark-gray text-base">DAI</span>
+                      <span>
+                        <svg
+                          width="13"
+                          height="6"
+                          viewBox="0 0 13 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            opacity="0.7"
+                            d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
+                            fill="#374557"
+                          />
+                        </svg>
+                      </span>
                     </div>
-                  </div></>
-            }
-          </div>
-          {/* <SelectBox
+                  </div>
+                </div>
+                <br />
+                <h1 className="field-title">Destination Chain</h1>
+                <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
+                  <input
+                    value={chain}
+                    onSubmit={(e) => setChain(e)}
+                    placeholder="enter the quantity of asset to transfer"
+                    className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
+                    type="text"
+                  />
+                  <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
+                    <div className="flex space-x-1 items-center">
+                      <span>
+                        <svg
+                          width="13"
+                          height="6"
+                          viewBox="0 0 13 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            opacity="0.7"
+                            d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
+                            fill="#374557"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <h1 className="field-title">Destination Address</h1>
+                <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
+                  <input
+                    value={address}
+                    onSubmit={(e) => setChain(e)}
+                    placeholder="enter the quantity of asset to transfer"
+                    className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
+                    type="text"
+                  />
+                  <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
+                    <div className="flex space-x-1 items-center">
+                      <span>
+                        <svg
+                          width="13"
+                          height="6"
+                          viewBox="0 0 13 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            opacity="0.7"
+                            d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
+                            fill="#374557"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <h1 className="field-title">Operation</h1>
+                <div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
+                  <input
+                    value={userOperation}
+                    onSubmit={(e) => setUserOperation(e)}
+                    placeholder="enter the quantity of asset to transfer"
+                    className="input-field placeholder:text-base text-bese px-6 text-dark-gray w-10/12 h-full bg-[#FAFAFA] focus:ring-0 focus:outline-none"
+                    type="text"
+                  />
+                  <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
+                    <div className="flex space-x-1 items-center">
+                      <span>
+                        <svg
+                          width="13"
+                          height="6"
+                          viewBox="0 0 13 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            opacity="0.7"
+                            d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
+                            fill="#374557"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <SelectBox
             action={setUserOperation}
             datas={["Transfer Asset"]}
             className="Update-table-dropdown"
             contentBodyClasses="w-auto min-w-max"
           /> */}
-          {/* <h1 className="field-title">User Operation</h1>
+              {/* <h1 className="field-title">User Operation</h1>
           <InputCom
             type="text"
             name="link"
@@ -490,7 +426,7 @@ export default function Layout({ children }) {
             value={"Transfer Asset"}
             placeholder="https:yoursite.lo/imte/item_name123"
           /> */}
-          {/* <h1 className="field-title">Destination Chain</h1>
+              {/* <h1 className="field-title">Destination Chain</h1>
           <InputCom
             type="text"
             name="link"
@@ -498,7 +434,7 @@ export default function Layout({ children }) {
             value={"Optimism"}
             placeholder="https:yoursite.lo/imte/item_name123"
           /> */}
-          {/* <h1 className="field-title">Destination Address</h1>
+              {/* <h1 className="field-title">Destination Address</h1>
           <InputCom
             type="text"
             name="link"
@@ -506,7 +442,7 @@ export default function Layout({ children }) {
             value={"0x2B09B574F3c90F7372C6819d1c9a9Ea044B78310"}
             placeholder="https:yoursite.lo/imte/item_name123"
           /> */}
-          {/* <div className="text-base tracking-wide text-dark-gray">
+              {/* <div className="text-base tracking-wide text-dark-gray">
             <p>
               <span className="text-thin-light-gray">Service fee :</span> 1.5%
             </p>
@@ -515,10 +451,9 @@ export default function Layout({ children }) {
               .29 ETH $120.56
             </p>
           </div> */}
-          </div>
+            </div>
             <div className="logout-modal-body w-full flex flex-col items-center px-10 py-8 px-[30px] py-[23px]">
-              <div className="what-icon mb-6 cursor-pointer">
-              </div>
+              <div className="what-icon mb-6 cursor-pointer"></div>
               <div className="flex space-x-2.5">
                 <button
                   onClick={submitTransaction}

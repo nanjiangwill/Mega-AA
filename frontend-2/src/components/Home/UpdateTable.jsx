@@ -16,7 +16,7 @@ export default function ({ className }) {
     10: "Optimism",
     56: "Binance Smart Chain",
     137: "Polygon",
-    420: "Optimism Kovan",
+    420: "Optimism",
     1000: "GTON",
     1284: "Moonriver",
     42161: "Arbitrum",
@@ -31,7 +31,7 @@ export default function ({ className }) {
   useEffect(() => {
     const loadTx = async () => {
       const userInfo = await fetch(
-        "https://hyperlane-explorer.hasura.app/api/rest/messagesBySender/ff5c0ab5aa2bd380cba1d1c7d82747bca210bae8"
+        "https://hyperlane-explorer.hasura.app/api/rest/messagesBySender/a2c72ced30fb9b39201f595f68f72498341689d3"
       );
       const data = await userInfo.json();
       // console.log(data.message);
