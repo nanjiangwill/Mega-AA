@@ -17,7 +17,7 @@ export default function SearchCom({ className, inputClasses }) {
             inputClasses || ""
           }`}
           type="text"
-          placeholder="Search items, collections..."
+          placeholder="Search transactions..."
         />
       </div>
     </div>

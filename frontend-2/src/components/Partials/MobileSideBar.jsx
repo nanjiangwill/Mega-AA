@@ -97,23 +97,10 @@ export default function MobileSidebar({ sidebar, action, logoutModalHandler }) {
         </div>
         <div className="setting-item">
           <div className="heading mb-5">
-            <h1 className="title text-xl font-bold text-purple">Settings</h1>
+            <h1 className="title text-xl font-bold text-purple">Profile</h1>
           </div>
           <div className="items">
             <ul className="flex flex-col space-y-6">
-              <li className="item group">
-                <NavLink
-                  to="/profile"
-                  className="nav-item flex items-center justify-start space-x-3.5"
-                >
-                  <span className="item-icon group-hover:bg-purple group-hover:text-white w-8 h-8 flex justify-center items-center transition-all duration-300 ease-in-out  bg-light-purple rounded-full text-dark-gray">
-                    <Icons name="people-two" />
-                  </span>
-                  <span className="item-content group-hover:text-purple text-[18px] transition-all duration-300 ease-in-out text-lighter-gray relative font-medium active flex-1">
-                    My Profile
-                  </span>
-                </NavLink>
-              </li>
               <li className="item group">
                 <NavLink
                   to="/settings"
