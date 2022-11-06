@@ -63,6 +63,7 @@ export function getUserOpHash (op: UserOperationStruct, chainId: number): string
     return keccak256(enc);
 }
 
+// chainId is the chainId of the origin chain (in our case, Mumbai)
 export function signUserOp(signer: Signer, userOp: UserOperationStruct, chainId: number): Promise<string> {
     const message = getUserOpHash(userOp, chainId);
     return signer.signMessage(message);
