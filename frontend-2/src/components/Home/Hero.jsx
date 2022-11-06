@@ -55,9 +55,9 @@ export default function Hero({ className }) {
           </div>
           <div>
             <p className="text-xl tracking-wide font-bold antise text-white">
-              Brokln Simons
+              Gani User
             </p>
-            <p className="text-sm tracking-wide text-white">@broklinslam_75</p>
+            <p className="text-sm tracking-wide text-white"></p>
           </div>
         </div> */}
         {/* grid */}

@@ -44,10 +44,10 @@ export default function OverviewSection({ className }) {
               </div>
               <div>
                 <p className="text-xl tracking-wide font-bold antise text-dark-gray">
-                  Brokln Simons
+                  Gani User
                 </p>
                 <p className="text-sm tracking-wide text-dark-gray">
-                  @broklinslam_75
+                  
                 </p>
               </div>
             </div>

@@ -4,7 +4,7 @@ import bank1 from "../../assets/images/bank-1.png";
 import bank2 from "../../assets/images/bank-2.png";
 import bank3 from "../../assets/images/bank-3.png";
 import bank4 from "../../assets/images/bank-4.png";
-import profileImg from "../../assets/images/profile-pic.jpg";
+import profileImg from "../../assets/images/profile-pic.png";
 import useToggle from "../../hooks/useToggle";
 import Icons from "../Helpers/Icons";
 import ModalCom from "../Helpers/ModalCom";
@@ -421,10 +421,10 @@ export default function Header({ logoutModalHandler, sidebarHandler, createModel
                 </div>
                 <div className="lg:block hidden">
                   <h1 className="text-xl font-bold text-dark-gray">
-                    Brokln Simons
+                    Gani User
                   </h1>
                   <p className="text-sm text-thin-light-gray">
-                    @broklinslam_75
+                    
                   </p>
                 </div>
               </div>

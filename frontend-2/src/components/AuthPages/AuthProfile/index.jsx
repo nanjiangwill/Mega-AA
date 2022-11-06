@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import authProfilePic from "../../../assets/images/auth-profile-picture.png";
+import authProfilePic from "../../../assets/images/profile-pic.png";
 import profileBanner from "../../../assets/images/profile-cover.png";
 import collections from "../../../data/collectionplan_data.json";
 import marketPlace from "../../../data/marketplace_data.json";
