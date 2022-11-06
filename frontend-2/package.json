@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "chart.js": "^3.7.1",
     "chartjs": "^0.3.24",
+    "ethers": "^5.7.2",
     "faker": "^6.6.6",
     "react": "^18.0.0",
     "react-chartjs-2": "^4.1.0",
