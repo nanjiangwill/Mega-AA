@@ -11,6 +11,7 @@ import RightSideBar from "./RightSideBar";
 import Sidebar from "./Sidebar";
 import SelectBox from "../Helpers/SelectBox";
 import InputCom from "../Helpers/Inputs/InputCom";
+import { ethers } from 'ethers';
 
 export default function Layout({ children }) {
   const { drawer } = useSelector((state) => state.drawer);
@@ -22,7 +23,12 @@ export default function Layout({ children }) {
   const [chain, setChain] = useState("Polygon");
   const [address, setAddress] = useState("0x2B09B574F3c90F7372C6819d1c9a9Ea044B78310");
   const [userOperation, setUserOperation] = useState("Transfer Asset")
+  const [nonce, setNonce] = useState(0)
   const datas = {}
+
+  const handleNonce = () => {
+    setNonce(nonce + 1)
+  }
 
   const logoutModalHandler = () => {
     setLogoutModal(!logoutModal);
@@ -43,17 +49,60 @@ export default function Layout({ children }) {
     navigate("/login", { replace: true });
   };
 
-  const submitTransaction = (quantity, chain, address, operation) => {
+  const owner = "0x001"
+  const optimismHyperlaneID = 420
+  // const byteOperation = 
+
+  const submitTransaction = async (quantity, chain, address, operation) => {
+    let ABI = ['transfer(address,uint256)'];
+    let iface = new ethers.utils.Interface(ABI);
+    //  change quantity to using parse unit
+    quantity = ethers.utils.parseUnits(quantity, 18)
+    iface.encodeFunctionData("transfer", [address,  quantity]);
+    
+    // userOp and userOpHash => userOpHash Byte 32, userOp => struct below
+
+    const transferCall = {
+      to: address,
+      data: operation
+    }
+    const calls = [transferCall]
+
     // return 
+    const signature = "place holder"
+
+    if (quantity < 1000) {
+      const userOperation = {
+        sender: owner, 
+        nonce: nonce,
+        destinationDomain: optimismHyperlaneID,
+        calls: calls,
+        signature: signature
+      }
+
+      const provider = new ethers.providers.JsonRpcProvider();
+ 
+      const signer = provider.getSigner()
+
+      await provider.call({
+        // ENS public resolver address
+        to: "0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41",
+      
+        // `function addr(namehash("ricmoo.eth")) view returns (address)`
+        data: iface
+      });
+
+    }
+
+    // await for success
+    handleNonce();
+
     toast.success("Transaction Complete", {
       icon: `🙂`,
     });
     navigate("/", { replace: true });
-  }
 
-  // const priceHandler = () => {
-  //   return;
-  // }
+  }
 
   return (
     <>
@@ -387,14 +436,14 @@ export default function Layout({ children }) {
               </div>
               <div className="flex space-x-2.5">
                 <button
-                  onClick={logOut}
+                  onClick={submitTransaction}
                   type="button"
                   className="text-white primary-gradient text-18 tracking-wide px-4 py-3 rounded-full"
                 >
                   Confirm
                 </button>
                 <button
-                  onClick={logoutModalHandler}
+                  onClick={createModelHandler}
                   type="button"
                   className=" border-gradient text-18 tracking-wide px-4 py-3 rounded-full"
                 >

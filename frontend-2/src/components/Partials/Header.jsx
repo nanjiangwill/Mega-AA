@@ -301,7 +301,7 @@ export default function Header({ logoutModalHandler, sidebarHandler, createModel
                             </span>
                           </p>
                           <p className="text-sm text-thin-light-gray font-medium">
-                            23 house ago
+                            2 minutes ago
                           </p>
                         </div>
                       </div>
@@ -333,13 +333,13 @@ export default function Header({ logoutModalHandler, sidebarHandler, createModel
                         </div>
                         <div className="name">
                           <p className="text-base text-dark-gray font-medium mb-2">
-                            You upload your frast product
+                            You created your first transaction
                             <span className="ml-1 font-bold">
                               successfully done
                             </span>
                           </p>
                           <p className="text-sm text-thin-light-gray font-medium">
-                            23 house ago
+                            1 minute ago
                           </p>
                         </div>
                       </div>
