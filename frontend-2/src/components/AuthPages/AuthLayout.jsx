@@ -1,6 +1,6 @@
 import React from "react";
 import loginThumb from "../../assets/images/auth-thumb.svg";
-import logo from "../../assets/images/logo-1.svg";
+import logo from "../../assets/images/logo-gani-3.png";
 
 export default function LoginLayout({ slogan, children }) {
   const checkScreenHeight = window.screen.height;
@@ -20,7 +20,7 @@ export default function LoginLayout({ slogan, children }) {
               <img src={logo} alt="logo" />
             </div>
             <div className="thumbnail flex justify-center">
-              <img src={loginThumb} alt="login-thumb" />
+              {/* <img src={loginThumb} alt="login-thumb" /> */}
             </div>
             <div className="article w-[600px]">
               <p className="text-[60px] font-bold leading-[72px] text-white">

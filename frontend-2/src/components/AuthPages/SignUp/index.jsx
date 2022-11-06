@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import loginThumb from "../../../assets/images/auth-thumb.svg";
-import googleLogo from "../../../assets/images/google-logo.svg";
-import logo from "../../../assets/images/logo-1.svg";
+// import loginThumb from "../../../assets/images/auth-thumb.svg";
+import googleLogo from "../../../assets/images/Worldcoin-logo.png";
+import logo from "../../../assets/images/logo-gani-3.png";
 import titleShape from "../../../assets/images/shape/title-shape-two.svg";
 import InputCom from "../../Helpers/Inputs/InputCom";
 
@@ -20,11 +20,11 @@ export default function SignUp() {
                 <img src={logo} alt="logo" />
               </div>
               <div className="thumbnail flex justify-center">
-                <img src={loginThumb} alt="login-thumb" />
+                {/* <img src={loginThumb} alt="login-thumb" /> */}
               </div>
               <div className="article w-[600px]">
                 <p className="text-[60px] font-bold leading-[72px] text-white">
-                  Welcome to Nftmax Admin Panel
+                Cross-chain AA Wallet with Modular Security
                 </p>
               </div>
             </div>
@@ -139,9 +139,10 @@ export default function SignUp() {
                           className="mr-3"
                           src={googleLogo}
                           alt="google logo"
+                          width="40"
                         />
                         <span className="text-lg text-thin-light-gray font-normal">
-                          Sign Up with Google
+                          Sign Up with Worldcoin
                         </span>
                       </a>
                     </div>

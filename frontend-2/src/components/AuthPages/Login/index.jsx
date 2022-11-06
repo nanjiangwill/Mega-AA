@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import googleLogo from "../../../assets/images/google-logo.svg";
+import googleLogo from "../../../assets/images/Worldcoin-logo.png";
 import titleShape from "../../../assets/images/shape/title-shape.svg";
 import InputCom from "../../Helpers/Inputs/InputCom";
 import AuthLayout from "../AuthLayout";
@@ -43,8 +43,7 @@ export default function Login() {
   return (
     <>
       <AuthLayout
-        slogan="Welcome to  Nftmax
-Admin Panel"
+        slogan="Cross-chain AA Wallet with Modular Security"
       >
         <div className="content-wrapper w-full  flex justify-center items-center xl:bg-white 2xl:w-[828px] xl:w-[500px] 2xl:h-[818px] xl:h-[600px] rounded-xl 2xl:px-[164px] xl:px-[56px] sm:px-7 px-5 ">
           <div className="w-full">
@@ -132,9 +131,9 @@ Admin Panel"
                   href="#"
                   className="w-full border border-light-purple rounded-[50px] h-[58px] flex justify-center bg-[#FAFAFA] items-center"
                 >
-                  <img className="mr-3" src={googleLogo} alt="google logo" />
+                  <img className="mr-3" src={googleLogo} alt="google logo" width="40"/>
                   <span className="text-lg text-thin-light-gray font-normal">
-                    Sign In with Google
+                    Sign In with Worldcoin
                   </span>
                 </a>
               </div>
