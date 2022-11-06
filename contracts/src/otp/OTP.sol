@@ -11,6 +11,7 @@ contract OTP {
     }
 
     function verifySignature(bytes32 note, bytes32[] memory proof) external pure returns (bool) {
+        require(!nullifiers[keccak256(note)], "OTP already used.");
         if(ImmutableInclusionVerifier.verifyMerkleProof(note, proof, merkleRoot)){
             nullifiers[keccak256(note)] = true;
             return true;
