@@ -2,7 +2,8 @@ import type {
     BigNumberish, BytesLike
 } from 'ethers';
 import { defaultAbiCoder, keccak256 } from 'ethers/lib/utils';
-import { ethers } from 'ethers';
+
+import { Signer } from '@ethersproject/abstract-signer';
 
 export type Call = {
     to: string;
@@ -60,4 +61,9 @@ export function getUserOpHash (op: UserOperationStruct, chainId: number): string
         [hash, chainId]
     );
     return keccak256(enc);
+}
+
+export function signUserOp(signer: Signer, userOp: UserOperationStruct, chainId: number): Promise<string> {
+    const message = getUserOpHash(userOp, chainId);
+    return signer.signMessage(message);
 }
