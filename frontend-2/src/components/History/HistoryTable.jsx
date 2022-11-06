@@ -54,10 +54,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -146,7 +145,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red whitespace-nowrap">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">
@@ -180,10 +179,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -272,7 +270,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">
@@ -306,10 +304,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -398,7 +395,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">
@@ -432,10 +429,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -524,7 +520,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">
@@ -561,10 +557,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -653,7 +648,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red whitespace-nowrap">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">
@@ -687,10 +682,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -779,7 +773,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">
@@ -816,10 +810,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -908,7 +901,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">
@@ -942,10 +935,9 @@ export default function HistoryTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -1034,7 +1026,7 @@ export default function HistoryTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4 px-2">

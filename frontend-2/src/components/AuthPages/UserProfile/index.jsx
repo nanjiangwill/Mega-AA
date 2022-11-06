@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import authProfilePic from "../../../assets/images/auth-profile-picture.png";
+import authProfilePic from "../../../assets/images/profile-pic.png";
 import followerProfile from "../../../assets/images/profile-2.png";
 import profileBanner from "../../../assets/images/profile-cover-2.png";
 import collections from "../../../data/collectionplan_data.json";
@@ -117,7 +117,7 @@ export default function UserProfile() {
                   <div className="auth-user-profile-content mb-9">
                     <div className="mb-4">
                       <h1 className="text-dark-gray tracking-wide sm:text-26 text-xl font-bold">
-                        Rafiqul Islam Suvo
+                        Gani User
                       </h1>
                     </div>
                     <div className="sm:w-[437px] w-full mb-4">

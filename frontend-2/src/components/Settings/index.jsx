@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import cover from "../../assets/images/profile-info-cover.png";
-import profile from "../../assets/images/profile-info-profile.png";
+import profile from "../../assets/images/profile-pic.png";
 import faq from "../../data/faq.json";
 import Icons from "../Helpers/Icons";
 import Layout from "../Partials/Layout";

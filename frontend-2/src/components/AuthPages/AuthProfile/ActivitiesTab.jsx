@@ -68,10 +68,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>
@@ -147,10 +146,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>
@@ -226,10 +224,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>
@@ -305,10 +302,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>
@@ -384,10 +380,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>
@@ -463,10 +458,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>
@@ -542,10 +536,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>
@@ -621,10 +614,9 @@ export default function ActivitiesTab({ className }) {
                   </div>
                   <div className="flex flex-col">
                     <h1 className="font-bold text-xl text-dark-gray whitespace-nowrap px-2">
-                      Mullican Computer Joy
-                    </h1>
+                      Polygon                    </h1>
                     <span className="text-sm text-thin-light-gray">
-                      Owned by <span className="text-purple">Xoeyam</span>
+                      
                     </span>
                   </div>
                 </div>

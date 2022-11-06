@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import top from "../../assets/images/top-buyer-1png.png";
 import top2 from "../../assets/images/top-buyer-2.png";
 import top3 from "../../assets/images/top-buyer-3.png";
-import top4 from "../../assets/images/top-buyer-4.png";
+import top4 from "../../assets/images/profile-pic.png";
 import Icons from "../Helpers/Icons";
 import SliderCom from "../Helpers/SliderCom";
 
@@ -125,13 +125,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -184,13 +184,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -243,13 +243,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -302,13 +302,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -361,13 +361,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -477,13 +477,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -543,13 +543,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -609,13 +609,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -675,13 +675,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}
@@ -741,13 +741,13 @@ export default function TopSellerTopBuyerSliderSection({ className }) {
                     {/* title */}
                     <div className="flex justify-center">
                       <p className="text-base font-bold text-dark-gray">
-                        Brokln Simons
+                        Gani User
                       </p>
                     </div>
                     {/* username */}
                     <div className="flex justify-center mb-1">
                       <p className="text-xs text-thin-light-gray">
-                        @broklinslam_75
+                        
                       </p>
                     </div>
                     {/* items */}

@@ -190,10 +190,9 @@ export default function UpdateTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -282,7 +281,7 @@ export default function UpdateTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red whitespace-nowrap px-2">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4">
@@ -316,10 +315,9 @@ export default function UpdateTable({ className }) {
                       </div>
                       <div className="flex flex-col">
                         <h1 className="font-bold text-xl text-dark-gray">
-                          Mullican Computer Joy
-                        </h1>
+                          Polygon                        </h1>
                         <span className="text-sm text-thin-light-gray">
-                          Owned by <span className="text-purple">Xoeyam</span>
+                          
                         </span>
                       </div>
                     </div>
@@ -408,7 +406,7 @@ export default function UpdateTable({ className }) {
                   </td>
                   <td className="text-center py-4 px-2">
                     <span className="text-base text-light-red whitespace-nowrap px-2">
-                      -24.75 (11.5%)
+                      b1ab...21bf
                     </span>
                   </td>
                   <td className="text-right py-4">
@@ -444,10 +442,9 @@ export default function UpdateTable({ className }) {
                     </div>
                     <div className="flex flex-col">
                       <h1 className="font-bold text-xl text-dark-gray">
-                        Mullican Computer Joy
-                      </h1>
+                        Polygon                      </h1>
                       <span className="text-sm text-thin-light-gray">
-                        Owned by <span className="text-purple">Xoeyam</span>
+                        
                       </span>
                     </div>
                   </div>
@@ -536,7 +533,7 @@ export default function UpdateTable({ className }) {
                 </td>
                 <td className="text-center py-4 px-2">
                   <span className="text-base text-light-red whitespace-nowrap px-2">
-                    -24.75 (11.5%)
+                    b1ab...21bf
                   </span>
                 </td>
                 <td className="text-right py-4">
