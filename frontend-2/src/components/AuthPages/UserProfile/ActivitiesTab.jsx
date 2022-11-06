@@ -19,7 +19,7 @@ export default function ActivitiesTab({ className }) {
         </div>
         <div className="flex space-x-1 items-center">
           <span className="text-base text-thin-light-gray whitespace-nowrap">
-            All Categories
+            All Chains
           </span>
           <span>
             <svg

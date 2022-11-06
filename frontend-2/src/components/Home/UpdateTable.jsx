@@ -6,7 +6,7 @@ import dataImage4 from "../../assets/images/data-table-user-4.png";
 import SelectBox from "../Helpers/SelectBox";
 
 export default function UpdateTable({ className }) {
-  const filterCategories = ["All Categories", "Explore", "Featured"];
+  const filterCategories = ["All Chains", "Ethereum", "Polygon", "Optimism", "Arbitrum", "Avalanche", "GTON"];
   const [selectedCategory, setCategory] = useState(filterCategories[0]);
   const [txList, setTxList] = useState([]);
 
@@ -124,7 +124,7 @@ export default function UpdateTable({ className }) {
               <td className="py-4 whitespace-nowrap text-right">Status</td>
             </tr>
             {/* table heading end */}
-            {selectedCategory === "All Categories" ? (
+            {selectedCategory === "All Chains" ? (
               <>
                 {txList.map((tx) => (
                   <tr className="bg-white border-b hover:bg-gray-50">
