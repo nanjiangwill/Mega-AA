@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/images/logo-2.svg";
+import logo from "../../assets/images/logo-gani-3.png";
 import Icons from "../Helpers/Icons";
 
 export default function Sidebar({ sidebar, action, logoutModalHandler }) {
