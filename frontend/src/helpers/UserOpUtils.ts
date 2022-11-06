@@ -69,7 +69,19 @@ export function getUserOpHash (op: UserOperationStruct, chainId: number): string
 // use a concrete sub-class of Signer like Wallet or JsonRpcSigner
 // the output of this function goes into the signature field of the userOp
 // (before signing the userOp, the signature field is '0x')
+// in order to produce a signature for TwoFAOriginWallet, you need to sign once with owner wallet,
+// sign once with friend wallet, and then concatenate the two signatures (first is owner, second is friend)
 export function signUserOp(signer: Signer, userOp: UserOperationStruct, chainId: number): Promise<string> {
     const message = getUserOpHash(userOp, chainId);
     return signer.signMessage(message);
+}
+
+// use this function to sign with two signers (i.e. to construct a signature for TwoFAOriginWallet)
+export function signUserOpTwoFA(ownerSigner: Signer, friendSigner: Signer, userOp: UserOperationStruct, chainId: number): Promise<string | void> {
+    const message = getUserOpHash(userOp, chainId);
+    const ownerSignature = ownerSigner.signMessage(message);
+    const friendSignature = friendSigner.signMessage(message);
+    return Promise.all([ownerSignature, friendSignature]).then((values) => {
+        values[0].concat(values[1]);
+    });
 }
