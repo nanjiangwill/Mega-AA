@@ -62,7 +62,7 @@ export default function SignUp() {
                     </div>
                     <div className="input-item mb-5">
                       <InputCom
-                        placeholder="example@quomodosoft.com"
+                        placeholder="test@gani.com"
                         label="Email Address"
                         name="email"
                         type="email"

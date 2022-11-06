@@ -5,7 +5,7 @@ import dataImage3 from "../../assets/images/data-table-user-3.png";
 import dataImage4 from "../../assets/images/data-table-user-4.png";
 import SelectBox from "../Helpers/SelectBox";
 
-export default function UpdateTable({ className }) {
+export default function ({ className }) {
   const filterCategories = ["All Chains", "Ethereum", "Polygon", "Optimism", "Arbitrum", "Avalanche", "GTON"];
   const [selectedCategory, setCategory] = useState(filterCategories[0]);
   const [txList, setTxList] = useState([]);

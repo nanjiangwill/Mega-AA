@@ -24,6 +24,8 @@ export default function Layout({ children }) {
   const [address, setAddress] = useState("0x2B09B574F3c90F7372C6819d1c9a9Ea044B78310");
   const [userOperation, setUserOperation] = useState("Transfer Asset")
   const [nonce, setNonce] = useState(0)
+  const [securityT1, setSecurityT1] = useState(0)
+  const [pop, setPop] = useState(0)
   const datas = {}
 
   const handleNonce = () => {
@@ -54,6 +56,13 @@ export default function Layout({ children }) {
   // const byteOperation = 
 
   const submitTransaction = async (quantity, chain, address, operation) => {
+        
+    if(quantity > 1000 && securityT1 == 0){
+      console.log("warning")
+      securityT1 = 1;
+    }
+
+    /*
     let ABI = ['transfer(address,uint256)'];
     let iface = new ethers.utils.Interface(ABI);
     //  change quantity to using parse unit
@@ -90,17 +99,64 @@ export default function Layout({ children }) {
       
         // `function addr(namehash("ricmoo.eth")) view returns (address)`
         data: iface
-      });
+      }); 
 
-    }
+    } 
+    */
+
 
     // await for success
     handleNonce();
 
+    if(securityT1 == 0){
+      toast.success("Transaction Complete", {
+        icon: `🙂`,
+      });
+      navigate("/", { replace: true });
+      setSecurityT1(1);
+    }
+
+    if(securityT1 == 3){
     toast.success("Transaction Complete", {
       icon: `🙂`,
     });
     navigate("/", { replace: true });
+    setSecurityT1(4);
+  }
+
+  if(securityT1 == 2){
+    toast.success("Almost... Setting Up One Time Passcode Module", {
+      icon: `⌛️`,
+    });
+    navigate("/", { replace: true });
+    setSecurityT1(3);
+    setPop(1)
+  }
+
+    if(securityT1 == 1){
+      console.log(securityT1)
+      toast.success("Large Tx Warning! Better set One Time Passcode in Settings", {
+        icon: `😫`,
+      });
+      navigate("/", { replace: true });
+      setSecurityT1(2);
+      console.log(securityT1)
+    }
+
+    if(securityT1 == 4){
+      toast.success("Mega Tx Warning!!! Better set 2FA in Settings", {
+        icon: `🙏`,
+      });
+      navigate("/", { replace: true });
+      setSecurityT1(5);
+    }
+
+    if(securityT1 == 5){
+      toast.success("Transaction Complete", {
+        icon: `🙂`,
+      });
+      navigate("/", { replace: true });
+    }
 
   }
 
@@ -390,6 +446,35 @@ export default function Layout({ children }) {
                 </div>
               </div>
             </div>
+            <br></br>
+            {pop == 1 &&
+              <><h1 className="field-title">One Time Verification Code</h1><div className="input-wrapper border border-light-purple w-full rounded-[50px] h-[58px] flex items-center overflow-hidden">
+                    <form>
+                      <label>
+                        One Time Verification Code:
+                        <input type="text" name="name" />
+                      </label>
+                    </form>
+                    <div className="flex-1 flex h-full justify-center items-center bg-[#FAFAFA]">
+                      <div className="flex space-x-1 items-center">
+                        <span>
+                          <svg
+                            width="13"
+                            height="6"
+                            viewBox="0 0 13 6"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              opacity="0.7"
+                              d="M12.7488 0.247421C12.6691 0.169022 12.5744 0.106794 12.4699 0.0643287C12.3655 0.0218632 12.2535 0 12.1403 0C12.0272 0 11.9152 0.0218632 11.8107 0.0643287C11.7063 0.106794 11.6115 0.169022 11.5318 0.247421L7.60655 4.07837C7.52688 4.15677 7.43209 4.219 7.32765 4.26146C7.22321 4.30393 7.11119 4.32579 6.99805 4.32579C6.88491 4.32579 6.77289 4.30393 6.66845 4.26146C6.56401 4.219 6.46922 4.15677 6.38954 4.07837L2.46427 0.247421C2.3846 0.169022 2.28981 0.106794 2.18537 0.0643287C2.08093 0.0218632 1.96891 0 1.85577 0C1.74263 0 1.63061 0.0218632 1.52617 0.0643287C1.42173 0.106794 1.32694 0.169022 1.24727 0.247421C1.08764 0.404141 0.998047 0.616141 0.998047 0.837119C0.998047 1.0581 1.08764 1.2701 1.24727 1.42682L5.18111 5.26613C5.6632 5.73605 6.31669 6 6.99805 6C7.6794 6 8.33289 5.73605 8.81498 5.26613L12.7488 1.42682C12.9084 1.2701 12.998 1.0581 12.998 0.837119C12.998 0.616141 12.9084 0.404141 12.7488 0.247421Z"
+                              fill="#374557" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div></>
+            }
           </div>
           {/* <SelectBox
             action={setUserOperation}

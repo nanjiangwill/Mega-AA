@@ -14,7 +14,7 @@ export default function Login() {
   };
 
   // email
-  const [email, setMail] = useState("example@quomodosoft.com");
+  const [email, setMail] = useState("test@gani.com");
   const handleEmail = (e) => {
     setMail(e.target.value);
   };
@@ -26,7 +26,7 @@ export default function Login() {
   const navigate = useNavigate();
   const doLogin = () => {
     if (email !== "" && password !== "") {
-      if (email === "example@quomodosoft.com") {
+      if (email === "test@gani.com") {
         localStorage.setItem("email", `${email}`);
         setLoginLoading(true);
         setTimeout(() => {
@@ -60,7 +60,7 @@ export default function Login() {
                 <InputCom
                   value={email}
                   inputHandler={handleEmail}
-                  placeholder="example@quomodosoft.com"
+                  placeholder="Email Address"
                   label="Email Address"
                   name="email"
                   type="email"
