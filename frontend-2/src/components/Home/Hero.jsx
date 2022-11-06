@@ -42,14 +42,14 @@ export default function Hero({ className }) {
         {/* heading */}
         <div>
           <h1 className="lg:text-2xl text-xl font-medium text-white tracking-wide">
-            Lock and Lob x Fiesta Spurs
+            Meta AA
           </h1>
           <span className="text-[18px] font-thin tracking-wide text-white">
-            ID : 2320382
+            YOUR WALLET HERE
           </span>
         </div>
         {/* user */}
-        <div className="flex items-center space-x-3">
+        {/* <div className="flex items-center space-x-3">
           <div className="w-14 h-14 flex justify-center items-center rounded-full overflow-hidden">
             <img src={heroUser} alt="" />
           </div>
@@ -59,9 +59,18 @@ export default function Hero({ className }) {
             </p>
             <p className="text-sm tracking-wide text-white">@broklinslam_75</p>
           </div>
+        </div> */}
+        {/* grid */}
+        <div className="flex-1 h-[700px] w-[500px] lg:h-full flex flex-row justify-between mb-5 lg:mb-0">
+          <div className="card-style-one flex flex-col justify-between w-[160px] h-[160px] bg-white p-3 pb rounded-2xl">1</div>
+          <div className="card-style-one flex flex-col justify-between w-[160px] h-[160px] bg-white p-3 pb rounded-2xl">1</div>
+          <div className="card-style-one flex flex-col justify-between w-[160px] h-[160px] bg-white p-3 pb rounded-2xl">1</div>
+          {/* <div className="card-style-one flex flex-col justify-between w-[160px] h-[160px] bg-white p-3 pb rounded-2xl">1</div>
+          <div className="card-style-one flex flex-col justify-between w-[160px] h-[160px] bg-white p-3 pb rounded-2xl">1</div> */}
         </div>
+
         {/* countdown */}
-        <div className="w-full h-32 flex justify-evenly items-center sm:p-6 p-1 rounded-2xl border border-white-opacity">
+        {/* <div className="w-full h-32 flex justify-evenly items-center sm:p-6 p-1 rounded-2xl border border-white-opacity">
           <div className="flex flex-col justify-between">
             <p className="text-base text-white tracking-wide">Current Bid</p>
             <p className="lg:text-2xl text-lg font-bold tracking-wide text-white">
@@ -81,9 +90,9 @@ export default function Hero({ className }) {
               <span>Sec</span>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* action */}
-        <div className="flex lg:space-x-3 space-x-1 items-center">
+        {/* <div className="flex lg:space-x-3 space-x-1 items-center">
           <button
             onClick={favoriteHandler}
             type="button"
@@ -114,9 +123,9 @@ export default function Hero({ className }) {
           >
             <span className=" border-b border-white"> View Art Work</span>
           </Link>
-        </div>
+        </div> */}
       </div>
-      <div className="hero-slider relative 2xl:w-[600px] xl:w-[500px] lg:w-[420px] w-full mb-2 lg:mb-0 ">
+      {/* <div className="hero-slider relative 2xl:w-[600px] xl:w-[500px] lg:w-[420px] w-full mb-2 lg:mb-0 ">
         <div className="w-full">
           <SliderCom settings={settings}>
             <div className="item w-full h-full bg-white rounded-2xl overflow-hidden">
@@ -130,7 +139,7 @@ export default function Hero({ className }) {
             </div>
           </SliderCom>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

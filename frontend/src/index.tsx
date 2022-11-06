@@ -7,6 +7,7 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import LandingPage from "./pages/landing";
+import DashBoardPage from "pages/dashboard";
 
 const chains = [chain.arbitrumGoerli]; // chain.mainnet, chain.polygon];
 // const client = createClient(
@@ -16,7 +17,7 @@ const chains = [chain.arbitrumGoerli]; // chain.mainnet, chain.polygon];
 const container = document.getElementById("root")!;
 const root = ReactDOM.createRoot(container);
 
-const router = createBrowserRouter([{ path: "/", element: <LandingPage /> }]);
+const router = createBrowserRouter([{ path: "/", element: <DashBoardPage /> }]);
 
 root.render(
   <React.StrictMode>
