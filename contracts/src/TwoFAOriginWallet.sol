@@ -20,19 +20,12 @@ contract TwoFAOriginWallet is IOriginWallet {
         twoFAEnabled = _twoFAEnabled;
     }
 
-    function handleUserOp(UserOperation calldata userOp) external {
-        require(validateUserOp(userOp));
+    function handleUserOp(UserOperation calldata userOp, bytes32 userOpHash) external {
+        require(validateUserOp(userOp, userOpHash));
         routeCalls(userOp.destinationDomain, userOp.calls);
     }
 
-    function validateUserOp(UserOperation calldata userOp) internal view returns (bool) {
-        bytes32 userOpHash = keccak256(abi.encode(
-            userOp.sender,
-            userOp.nonce,
-            userOp.destinationDomain,
-            userOp.calls,
-            bytes32(0x00)
-            ));
+    function validateUserOp(UserOperation calldata userOp, bytes32 userOpHash) internal view returns (bool) {
         if(!twoFAEnabled) {
             require(userOp.signature.length == 65, "Invalid signature length");
             return(SimpleModule.verifySignature(owner, userOpHash, userOp.signature));
