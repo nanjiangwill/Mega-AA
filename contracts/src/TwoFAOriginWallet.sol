@@ -29,7 +29,7 @@ contract TwoFAOriginWallet is IOriginWallet {
 
     function handleUserOp(UserOperation calldata userOp, bytes32 userOpHash) external {
         require(validateUserOp(userOp, userOpHash));
-        routeCalls(userOp.destinationDomain, userOp.calls);
+        routeCalls(uint32(userOp.destinationDomain), userOp.calls);
     }
 
     function validateUserOp(UserOperation calldata userOp, bytes32 userOpHash) internal view returns (bool) {
