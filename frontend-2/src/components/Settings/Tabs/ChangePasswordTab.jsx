@@ -233,8 +233,8 @@ export default function ChangePasswordTab() {
                     handler={() => setGetProduct(!getProduct)}
                   />
                   <p className="text-18 tracking-wide text-[#33AAF2] border-b border-[#33AAF2]">
-                  Setting
-                </p>
+                    Setting
+                  </p>
                 </div>
               </li>
             </ul>
