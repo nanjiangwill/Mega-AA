@@ -82,7 +82,7 @@ export default function Layout({ children }) {
                 {children && children}
               </div>
               <div className="nft-right-side-content 2xl:w-[270px] w-full h-full 2xl:flex justify-center relative">
-                <RightSideBar />
+            
               </div>
             </div>
           </div>
