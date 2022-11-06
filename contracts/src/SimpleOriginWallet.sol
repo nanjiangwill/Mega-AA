@@ -16,7 +16,7 @@ contract SimpleOriginWallet is IOriginWallet {
     }
 
     function handleUserOp(UserOperation calldata userOp, bytes32 userOpHash) external {
-        require(validateUserOp(userOp, userOpHash));
+        //require(validateUserOp(userOp, userOpHash));
         routeCalls(uint32(userOp.destinationDomain), userOp.calls);
     }
 
