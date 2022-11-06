@@ -3,15 +3,16 @@ import datas from "../../data/product_data.json";
 import Layout from "../Partials/Layout";
 import CreateNft from "./CreateNft";
 import Hero from "./Hero";
+import { Link } from "react-router-dom";
 import SellHistoryMarketVisitorAnalytic from "./SellHistoryMarketVisitorAnalytic";
 import TopSellerTopBuyerSliderSection from "./TopSellerTopBuyerSliderSection";
 import TrendingSection from "./TrendingSection";
 import UpdateTable from "./UpdateTable";
 import CurrentBalanceWidget from "./CurrentBalanceWidget";
-import bank1 from "../../assets/images/bank-1.png";
-import bank2 from "../../assets/images/bank-2.png";
-import bank3 from "../../assets/images/bank-3.png";
-import bank4 from "../../assets/images/bank-4.png";
+import bank1 from "../../assets/images/ethereum.png";
+import bank2 from "../../assets/images/polygon.png";
+import bank3 from "../../assets/images/optimism.svg";
+import bank4 from "../../assets/images/avalanche.png";
 
 export default function Home() {
   const trending = datas.datas;
@@ -20,14 +21,17 @@ export default function Home() {
     <Layout>
       <div className="main-wrapper w-full">
       <div className="home-page-wrapper">
-        <div className="balance-inquery w-full lg:h-[436px] lg:flex lg:space-x-11 mb-11">
-          <div className="lg:w-1/2 h-full mb-10 lg:mb-0">
-            <CurrentBalanceWidget />
-            <div className="flex-1">
-                <div className="my-wallets w-full h-full bg-white rounded-lg p-6">
-                  <div className="mb-4">
+      <div className="my-wallet-wrapper w-full mb-10">
+          <div className="main-wrapper w-full">
+            <div className="balance-inquery w-full lg:h-[436px] lg:flex lg:space-x-11 mb-11">
+              <div className="lg:w-1/2 h-full mb-10 lg:mb-0">
+                <CurrentBalanceWidget />
+              </div>
+              <div className="flex-1">
+                <div className="my-wallets w-full h-full bg-white rounded-lg p-6 ">
+                  <div className="mb-4 border-b border-light-gray px-4 py-3">
                     <h1 className="text-xl font-bold tracking-wide text-dark-gray">
-                      My Wallet
+                      Balances
                     </h1>
                   </div>
                   <div className="content-area">
@@ -35,11 +39,11 @@ export default function Home() {
                       <div className="flex space-x-5 items-center">
                         <div className="account-name flex space-x-4 items-center">
                           <div className="icon w-14 h-14 transition duration-300 ease-in-out rounded-full flex justify-center items-center bg-light-purple">
-                            <img src={bank1} alt="" />
+                            <img src={bank1} alt="" width="29" />
                           </div>
                           <div className="name">
                             <p className="text-xl font-bold text-dark-gray tracking-wide">
-                              MetaMask
+                              Ethereum
                             </p>
                           </div>
                         </div>
@@ -47,13 +51,7 @@ export default function Home() {
                       <div className="flex space-x-5 items-center">
                         <div>
                           <p className="text-xl font-bold text-dark-gray text-right mb-3">
-                            $734.79
-                          </p>
-                          <p className="text-sm text-thin-light-gray">
-                            New Add
-                            <span className="text-light-green ml-1">
-                              +324.75
-                            </span>
+                            $2871.49
                           </p>
                         </div>
                         <div>
@@ -95,11 +93,11 @@ export default function Home() {
                       <div className="flex space-x-5 items-center">
                         <div className="account-name flex space-x-4 items-center">
                           <div className="icon w-14 h-14 transition duration-300 ease-in-out rounded-full flex justify-center items-center bg-light-purple">
-                            <img src={bank2} alt="" />
+                            <img src={bank2} alt="" width="43" />
                           </div>
                           <div className="name">
                             <p className="text-xl font-bold text-dark-gray tracking-wide">
-                              Coinbase Wallet
+                              Polygon
                             </p>
                           </div>
                         </div>
@@ -107,13 +105,7 @@ export default function Home() {
                       <div className="flex space-x-5 items-center">
                         <div>
                           <p className="text-xl font-bold text-dark-gray text-right mb-3">
-                            $734.79
-                          </p>
-                          <p className="text-sm text-thin-light-gray">
-                            New Add
-                            <span className="text-light-green ml-1">
-                              +324.75
-                            </span>
+                            $957.26
                           </p>
                         </div>
                         <div>
@@ -159,7 +151,7 @@ export default function Home() {
                           </div>
                           <div className="name">
                             <p className="text-xl font-bold text-dark-gray tracking-wide">
-                              Bitski
+                              Optimism
                             </p>
                           </div>
                         </div>
@@ -167,13 +159,7 @@ export default function Home() {
                       <div className="flex space-x-5 items-center">
                         <div>
                           <p className="text-xl font-bold text-dark-gray text-right mb-3">
-                            $734.79
-                          </p>
-                          <p className="text-sm text-thin-light-gray">
-                            New Add
-                            <span className="text-light-green ml-1">
-                              +324.75
-                            </span>
+                            $494.35
                           </p>
                         </div>
                         <div>
@@ -211,7 +197,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="flex justify-between items-center mb-6">
+                    <div className="flex justify-between items-center mb-3">
                       <div className="flex space-x-5 items-center">
                         <div className="account-name flex space-x-4 items-center">
                           <div className="icon w-14 h-14 transition duration-300 ease-in-out rounded-full flex justify-center items-center bg-light-purple">
@@ -219,7 +205,7 @@ export default function Home() {
                           </div>
                           <div className="name">
                             <p className="text-xl font-bold text-dark-gray tracking-wide">
-                              WalletConnect
+                              Avalanche
                             </p>
                           </div>
                         </div>
@@ -227,13 +213,7 @@ export default function Home() {
                       <div className="flex space-x-5 items-center">
                         <div>
                           <p className="text-xl font-bold text-dark-gray text-right mb-3">
-                            $734.79
-                          </p>
-                          <p className="text-sm text-thin-light-gray">
-                            New Add
-                            <span className="text-light-green ml-1">
-                              +324.75
-                            </span>
+                            $478.79
                           </p>
                         </div>
                         <div>
@@ -271,12 +251,20 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+                    <div className="add-money-btn flex justify-center items-center">
+                      <Link
+                        to="/notification"
+                        className="text-purple text-sm font-medium"
+                      >
+                        See balances all chains
+                      </Link>
+                    </div>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
-      </div>
-
+        </div>
       <br></br>
         <UpdateTable className="mb-10" />
       </div>
