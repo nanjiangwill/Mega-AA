@@ -66,6 +66,8 @@ export function getUserOpHash (op: UserOperationStruct, chainId: number): string
 // chainId is the chainId of the origin chain (in our case, Mumbai)
 // the Signer class is abstract and cannot be instantiated directly
 // use a concrete sub-class of Signer like Wallet or JsonRpcSigner
+// the output of this function goes into the signature field of the userOp
+// (before signing the userOp, the signature field is '0x')
 export function signUserOp(signer: Signer, userOp: UserOperationStruct, chainId: number): Promise<string> {
     const message = getUserOpHash(userOp, chainId);
     return signer.signMessage(message);
